@@ -1,0 +1,35 @@
+Step 1: Download and Install JDK
+
+Step 2: Set the path
+C:\Program Files\Java\jdk1.8.0_191\bin
+
+Step 3:
+This PC->right click -> Advanced system settings->environment variables->
+path->new ->paste your path ->click on OK
+
+Step 4: Open your CMD and type javac
+
+javac->java compiler[JDK]
+
+jdk -version
+
+Step 5: Download and Install Eclipse
+
+Step 6:Select Java EE web developers
+
+=> Java is a case sensitive Language
+
+Data Types:
+
+int -> numeric value
+
+float -> decimal
+
+char -> character
+
+double -> decimal
+
+boolean -> true,false
+
+String -> Any data
+
