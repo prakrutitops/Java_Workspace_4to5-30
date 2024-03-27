@@ -1,0 +1,246 @@
+1.
+package com.a223;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+//Java program for the above approach
+import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+import com.a183.Frame2;
+
+public class GFG {
+
+	// Function that implements the
+	// number guessing game
+	JFrame frame;
+	JTextField tf1;
+	JButton btn1;
+	int k=5;
+	int i,guess;
+	int remainingTrials = 5;
+	public GFG() 
+	{
+		// TODO Auto-generated constructor stub
+		
+		frame = new JFrame();
+		
+		tf1 = new JTextField(11);
+		btn1 = new JButton("Submit");
+		int number = 1 + (int)(100* Math.random());
+		System.out.println(number);
+		
+		btn1.addActionListener(new ActionListener() 
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				
+				 try {
+			            int guess = Integer.parseInt(tf1.getText().toString());
+			            if (guess == number) 
+			            {
+			            	System.out.println("Congratulations! You guessed the correct number.");
+			                
+			            } 
+			            else if (guess < number) 
+			            {
+			            	System.out.println("Too low! Try again. You have " + --remainingTrials + " trials left.");
+			            } 
+			            else 
+			            {
+			            	System.out.println("Too high! Try again. You have " + --remainingTrials + " trials left.");
+			            }
+			            if (remainingTrials == 0) 
+			            {
+			            	System.out.println("Out of trials! The correct number was " + number);
+			                
+			            }
+			        } 
+				 catch (NumberFormatException ex) 
+				 {
+					 System.out.println("Please enter a valid number.");
+			     }
+			        tf1.setText("");
+				
+			}
+		});
+			
+			frame.add(tf1);
+			frame.add(btn1);
+			frame.setSize(350,350);
+			frame.setLayout(new FlowLayout());
+			frame.setVisible(true);
+	}
+				
+	
+
+	
+
+	
+//	public static void guessingNumberGame()
+//	{
+//		
+//		// Scanner Class
+//		//Scanner sc = new Scanner(System.in);
+//
+//		// Generate the numbers
+//		int number = 1 + (int)(100
+//							* Math.random());
+//
+//		// Given K trials
+//		int K = 5;
+//
+//		int i, guess;
+//
+//		System.out.println(
+//			"A number is chosen"
+//			+ " between 1 to 100."
+//			+ "Guess the number"
+//			+ " within 5 trials.");
+//
+//		// Iterate over K Trials
+//		for (i = 0; i < K; i++) {
+//
+//			System.out.println(
+//				"Guess the number:");
+//
+//			// Take input for guessing
+//			guess = sc.nextInt();
+//
+//			// If the number is guessed
+//			if (number == guess) 
+//			{
+//				System.out.println(
+//					"Congratulations!"
+//					+ " You guessed the number.");
+//				break;
+//			}
+//			else if (number > guess
+//					&& i != K - 1) {
+//				System.out.println(
+//					"The number is "
+//					+ "greater than " + guess);
+//			}
+//			else if (number < guess
+//					&& i != K - 1) {
+//				System.out.println(
+//					"The number is"
+//					+ " less than " + guess);
+//			}
+//		}
+//
+//		if (i == K) {
+//			System.out.println(
+//				"You have exhausted"
+//				+ " K trials.");
+//
+//			System.out.println(
+//				"The number was " + number);
+//		}
+//	}
+
+	// Driver Code
+	public static void main(String arg[])
+	{
+
+		// Function Call
+		//guessingNumberGame();
+		new GFG();
+	}
+}
+
+
+2.
+
+package com.a223;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+
+public class NumberGuessingGame extends JFrame 
+{
+	JFrame frame;
+    JTextField textField;
+    JButton guessButton;
+    JLabel resultLabel;
+    int randomNumber;
+    int MAX_NUMBER = 100;
+    int remainingTrials = 5;
+
+    public NumberGuessingGame() 
+    {
+        initializeComponents();
+        generateRandomNumber();
+    }
+
+    private void initializeComponents() 
+    {
+    	frame = new JFrame();
+    	textField = new JTextField(10);
+        guessButton = new JButton("Guess");
+        resultLabel = new JLabel("Guess a number between 1 and " + MAX_NUMBER + ". You have " + remainingTrials + " trials left.");
+        
+         	
+         frame.setSize(300, 150);
+         frame.setLocationRelativeTo(null);
+         
+      
+        
+
+        guessButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                checkGuess();
+            }
+        });
+
+        setLayout(new GridLayout(3, 1));
+        add(textField);
+        add(guessButton);
+        add(resultLabel);
+    }
+
+    private void generateRandomNumber() {
+        Random random = new Random();
+        randomNumber = random.nextInt(MAX_NUMBER) + 1;
+    }
+
+    private void checkGuess() {
+        try {
+            int guess = Integer.parseInt(textField.getText());
+            if (guess == randomNumber) {
+                resultLabel.setText("Congratulations! You guessed the correct number.");
+                guessButton.setEnabled(false);
+            } else if (guess < randomNumber) {
+                resultLabel.setText("Too low! Try again. You have " + --remainingTrials + " trials left.");
+            } else {
+                resultLabel.setText("Too high! Try again. You have " + --remainingTrials + " trials left.");
+            }
+            if (remainingTrials == 0) {
+                resultLabel.setText("Out of trials! The correct number was " + randomNumber);
+                guessButton.setEnabled(false);
+            }
+        } catch (NumberFormatException ex) {
+            resultLabel.setText("Please enter a valid number.");
+        }
+        textField.setText("");
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new NumberGuessingGame().setVisible(true);
+            }
+        });
+    }
+}
