@@ -1,0 +1,1105 @@
+jframe object or extends jframe class:
+
+button:
+1.import javax.swing.*;  
+public class FirstSwingExample 
+{  
+public static void main(String[] args)
+ {  
+JFrame f=new JFrame();//creating instance of JFrame  
+          
+JButton b=new JButton("click");//creating instance of JButton  
+b.setBounds(130,100,100, 40);//x axis, y axis, width, height  
+          
+f.add(b);//adding button in JFrame  
+          
+f.setSize(400,500);//400 width and 500 height  
+f.setLayout(null);//using no layout managers  
+f.setVisible(true);//making the frame visible  
+}  
+}
+
+2.label:
+
+import javax.swing.*;  
+public class FirstSwingExample {  
+public static void main(String[] args) {  
+JFrame f=new JFrame();//creating instance of JFrame  
+  
+JLabel l=new JLAbel("aaa");        
+JButton b=new JButton("click");//creating instance of JButton  
+b.setBounds(130,100,100, 40);//x axis, y axis, width, height  
+          
+f.add(b);//adding button in JFrame  
+          
+f.setSize(400,500);//400 width and 500 height  
+f.setLayout(null);//using no layout managers  
+f.setVisible(true);//making the frame visible  
+}  
+}  
+
+3.
+jtextfield
+
+import javax.swing.*;  
+import java.awt.event.*;  
+public class TextFieldExample implements ActionListener{  
+    JTextField tf1,tf2,tf3;  
+    JButton b1,b2;  
+    TextFieldExample(){  
+        JFrame f= new JFrame();  
+        tf1=new JTextField();  
+        tf1.setBounds(50,50,150,20);  
+        tf2=new JTextField();  
+        tf2.setBounds(50,100,150,20);  
+        tf3=new JTextField();  
+        tf3.setBounds(50,150,150,20);  
+        tf3.setEditable(false);   
+        b1=new JButton("+");  
+        b1.setBounds(50,200,50,50);  
+        b2=new JButton("-");  
+        b2.setBounds(120,200,50,50);  
+        b1.addActionListener(this);  
+        b2.addActionListener(this);  
+        f.add(tf1);f.add(tf2);f.add(tf3);f.add(b1);f.add(b2);  
+        f.setSize(300,300);  
+        f.setLayout(null);  
+        f.setVisible(true);  
+    }         
+    public void actionPerformed(ActionEvent e) {  
+        String s1=tf1.getText();  
+        String s2=tf2.getText();  
+        int a=Integer.parseInt(s1);  
+        int b=Integer.parseInt(s2);  
+        int c=0;  
+        if(e.getSource()==b1){  
+            c=a+b;  
+        }else if(e.getSource()==b2){  
+            c=a-b;  
+        }  
+        String result=String.valueOf(c);  
+        tf3.setText(result);  
+    }  
+public static void main(String[] args) {  
+    new TextFieldExample();  
+} }  
+
+4.jtextarea:
+
+import javax.swing.*;  
+public class TextAreaExample  
+{  
+     TextAreaExample(){  
+        JFrame f= new JFrame();  
+        JTextArea area=new JTextArea("Welcome to javatpoint");  
+        area.setBounds(10,30, 200,200);  
+        f.add(area);  
+        f.setSize(300,300);  
+        f.setLayout(null);  
+        f.setVisible(true);  
+     }  
+public static void main(String args[])  
+    {  
+   new TextAreaExample();  
+    }}  
+
+action listener:count word nd char
+
+import javax.swing.*;  
+import java.awt.event.*;  
+public class TextAreaExample implements ActionListener{  
+JLabel l1,l2;  
+JTextArea area;  
+JButton b;  
+TextAreaExample() {  
+    JFrame f= new JFrame();  
+    l1=new JLabel();  
+    l1.setBounds(50,25,100,30);  
+    l2=new JLabel();  
+    l2.setBounds(160,25,100,30);  
+    area=new JTextArea();  
+    area.setBounds(20,75,250,200);  
+    b=new JButton("Count Words");  
+    b.setBounds(100,300,120,30);  
+    b.addActionListener(this);  
+    f.add(l1);f.add(l2);f.add(area);f.add(b);  
+    f.setSize(450,450);  
+    f.setLayout(null);  
+    f.setVisible(true);  
+}  
+public void actionPerformed(ActionEvent e){  
+    String text=area.getText();  
+    String words[]=text.split("\\s");  
+    l1.setText("Words: "+words.length);  
+    l2.setText("Characters: "+text.length());  
+}  
+public static void main(String[] args) {  
+    new TextAreaExample();  
+}  
+}  
+
+
+  
+
+password field:
+
+import javax.swing.*;    
+public class PasswordFieldExample {  
+    public static void main(String[] args) {    
+    JFrame f=new JFrame("Password Field Example");    
+     JPasswordField value = new JPasswordField();   
+     JLabel l1=new JLabel("Password:");    
+        l1.setBounds(20,100, 80,30);    
+         value.setBounds(100,100,100,30);    
+            f.add(value);  f.add(l1);  
+            f.setSize(300,300);    
+            f.setLayout(null);    
+            f.setVisible(true);     
+}  
+}  
+
+password field with action listener:
+
+import javax.swing.*;    
+import java.awt.event.*;  
+public class PasswordFieldExample {  
+    public static void main(String[] args) {    
+    JFrame f=new JFrame("Password Field Example");    
+     final JLabel label = new JLabel();            
+     label.setBounds(20,150, 200,50);  
+     final JPasswordField value = new JPasswordField();   
+     value.setBounds(100,75,100,30);   
+     JLabel l1=new JLabel("Username:");    
+        l1.setBounds(20,20, 80,30);    
+        JLabel l2=new JLabel("Password:");    
+        l2.setBounds(20,75, 80,30);    
+        JButton b = new JButton("Login");  
+        b.setBounds(100,120, 80,30);    
+        final JTextField text = new JTextField();  
+        text.setBounds(100,20, 100,30);    
+                f.add(value); f.add(l1); f.add(label); f.add(l2); f.add(b); f.add(text);  
+                f.setSize(300,300);    
+                f.setLayout(null);    
+                f.setVisible(true);     
+                b.addActionListener(new ActionListener() {  
+                public void actionPerformed(ActionEvent e) {       
+                   String data = "Username " + text.getText();  
+                   data += ", Password: "   
+                   + new String(value.getPassword());   
+                   label.setText(data);          
+                }  
+             });   
+}  
+}  
+
+
+checkbox:
+
+import javax.swing.*;  
+public class CheckBoxExample  
+{  
+     CheckBoxExample(){  
+        JFrame f= new JFrame("CheckBox Example");  
+        JCheckBox checkBox1 = new JCheckBox("C++");  
+        checkBox1.setBounds(100,100, 50,50);  
+        JCheckBox checkBox2 = new JCheckBox("Java", true);  
+        checkBox2.setBounds(100,150, 50,50);  
+        f.add(checkBox1);  
+        f.add(checkBox2);  
+        f.setSize(400,400);  
+        f.setLayout(null);  
+        f.setVisible(true);  
+     }  
+public static void main(String args[])  
+    {  
+    new CheckBoxExample();  
+    }}  
+
+
+checkbox with itemlistener:
+
+import javax.swing.*;  
+import java.awt.event.*;    
+public class CheckBoxExample    
+{    
+     CheckBoxExample(){    
+        JFrame f= new JFrame("CheckBox Example");    
+        final JLabel label = new JLabel();            
+        label.setHorizontalAlignment(JLabel.CENTER);    
+        label.setSize(400,100);    
+        JCheckBox checkbox1 = new JCheckBox("C++");    
+        checkbox1.setBounds(150,100, 50,50);    
+        JCheckBox checkbox2 = new JCheckBox("Java");    
+        checkbox2.setBounds(150,150, 50,50);    
+        f.add(checkbox1); f.add(checkbox2); f.add(label);    
+        checkbox1.addItemListener(new ItemListener() {    
+             public void itemStateChanged(ItemEvent e) {                 
+                label.setText("C++ Checkbox: "     
+                + (e.getStateChange()==1?"checked":"unchecked"));    
+             }    
+          });    
+        checkbox2.addItemListener(new ItemListener() {    
+             public void itemStateChanged(ItemEvent e) {                 
+                label.setText("Java Checkbox: "     
+                + (e.getStateChange()==1?"checked":"unchecked"));    
+             }    
+          });    
+        f.setSize(400,400);    
+        f.setLayout(null);    
+        f.setVisible(true);    
+     }    
+public static void main(String args[])    
+{    
+    new CheckBoxExample();    
+}    
+}    
+
+
+food ordering system:
+
+
+import javax.swing.*;  
+import java.awt.event.*;  
+public class CheckBoxExample extends JFrame implements ActionListener{  
+    JLabel l;  
+    JCheckBox cb1,cb2,cb3;  
+    JButton b;  
+    CheckBoxExample(){  
+        l=new JLabel("Food Ordering System");  
+        l.setBounds(50,50,300,20);  
+        cb1=new JCheckBox("Pizza @ 100");  
+        cb1.setBounds(100,100,150,20);  
+        cb2=new JCheckBox("Burger @ 30");  
+        cb2.setBounds(100,150,150,20);  
+        cb3=new JCheckBox("Tea @ 10");  
+        cb3.setBounds(100,200,150,20);  
+        b=new JButton("Order");  
+        b.setBounds(100,250,80,30);  
+        b.addActionListener(this);  
+        add(l);add(cb1);add(cb2);add(cb3);add(b);  
+        setSize(400,400);  
+        setLayout(null);  
+        setVisible(true);  
+        setDefaultCloseOperation(EXIT_ON_CLOSE);  
+    }  
+    public void actionPerformed(ActionEvent e){  
+        float amount=0;  
+        String msg="";  
+        if(cb1.isSelected()){  
+            amount+=100;  
+            msg="Pizza: 100\n";  
+        }  
+        if(cb2.isSelected()){  
+            amount+=30;  
+            msg+="Burger: 30\n";  
+        }  
+        if(cb3.isSelected()){  
+            amount+=10;  
+            msg+="Tea: 10\n";  
+        }  
+        msg+="-----------------\n";  
+        JOptionPane.showMessageDialog(this,msg+"Total: "+amount);  
+    }  
+    public static void main(String[] args) {  
+        new CheckBoxExample();  
+    }  
+}  
+
+radio button with action listener:
+
+import javax.swing.*;    
+import java.awt.event.*;    
+class RadioButtonExample extends JFrame implements ActionListener{    
+JRadioButton rb1,rb2;    
+JButton b;    
+RadioButtonExample(){      
+rb1=new JRadioButton("Male");    
+rb1.setBounds(100,50,100,30);      
+rb2=new JRadioButton("Female");    
+rb2.setBounds(100,100,100,30);    
+ButtonGroup bg=new ButtonGroup();    
+bg.add(rb1);bg.add(rb2);    
+b=new JButton("click");    
+b.setBounds(100,150,80,30);    
+b.addActionListener(this);    
+add(rb1);add(rb2);add(b);    
+setSize(300,300);    
+setLayout(null);    
+setVisible(true);    
+}    
+public void actionPerformed(ActionEvent e){    
+if(rb1.isSelected()){    
+JOptionPane.showMessageDialog(this,"You are Male.");    
+}    
+if(rb2.isSelected()){    
+JOptionPane.showMessageDialog(this,"You are Female.");    
+}    
+}    
+public static void main(String args[]){    
+new RadioButtonExample();    
+}}   
+
+
+jcombobox:
+
+import javax.swing.*;    
+import java.awt.event.*;    
+public class ComboBoxExample {    
+JFrame f;    
+ComboBoxExample(){    
+    f=new JFrame("ComboBox Example");   
+    final JLabel label = new JLabel();          
+    label.setHorizontalAlignment(JLabel.CENTER);  
+    label.setSize(400,100);  
+    JButton b=new JButton("Show");  
+    b.setBounds(200,100,75,20);  
+    String languages[]={"C","C++","C#","Java","PHP"};        
+    final JComboBox cb=new JComboBox(languages);    
+    cb.setBounds(50, 100,90,20);    
+    f.add(cb); f.add(label); f.add(b);    
+    f.setLayout(null);    
+    f.setSize(350,350);    
+    f.setVisible(true);       
+    b.addActionListener(new ActionListener() {  
+        public void actionPerformed(ActionEvent e) {       
+String data = "Programming language Selected: "   
+   + cb.getItemAt(cb.getSelectedIndex());  
+label.setText(data);  
+}  
+});           
+}    
+public static void main(String[] args) {    
+    new ComboBoxExample();         
+}    
+}    
+
+
+jtable:
+
+import javax.swing.*;    
+public class TableExample {    
+    JFrame f;    
+    TableExample(){    
+    f=new JFrame();    
+    String data[][]={ {"101","Amit","670000"},    
+                          {"102","Jai","780000"},    
+                          {"101","Sachin","700000"}};    
+    String column[]={"ID","NAME","SALARY"};         
+    JTable jt=new JTable(data,column);    
+    jt.setBounds(30,40,200,300);          
+    JScrollPane sp=new JScrollPane(jt);    
+    f.add(sp);          
+    f.setSize(300,400);    
+    f.setVisible(true);    
+}     
+public static void main(String[] args) {    
+    new TableExample();    
+}    
+}  
+
+
+jtable with action listener:
+
+import javax.swing.*;    
+import javax.swing.event.*;  
+public class TableExample {    
+      public static void main(String[] a) {  
+            JFrame f = new JFrame("Table Example");  
+            String data[][]={ {"101","Amit","670000"},    
+                                                                       {"102","Jai","780000"},    
+                                                                       {"101","Sachin","700000"}};    
+                            String column[]={"ID","NAME","SALARY"};         
+                            final JTable jt=new JTable(data,column);    
+            jt.setCellSelectionEnabled(true);  
+            ListSelectionModel select= jt.getSelectionModel();  
+            select.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);  
+            select.addListSelectionListener(new ListSelectionListener() {  
+              public void valueChanged(ListSelectionEvent e) {  
+                String Data = null;  
+                int[] row = jt.getSelectedRows();  
+                int[] columns = jt.getSelectedColumns();  
+                for (int i = 0; i < row.length; i++) {  
+                  for (int j = 0; j < columns.length; j++) {  
+                    Data = (String) jt.getValueAt(row[i], columns[j]);  
+                  } }  
+                System.out.println("Table element selected is: " + Data);    
+              }       
+            });  
+            JScrollPane sp=new JScrollPane(jt);    
+            f.add(sp);  
+            f.setSize(300, 200);  
+            f.setVisible(true);  
+          }  
+        }  
+
+
+jlist:
+
+import javax.swing.*;  
+public class ListExample  
+{  
+     ListExample(){  
+        JFrame f= new JFrame();  
+        DefaultListModel<String> l1 = new DefaultListModel<>();  
+          l1.addElement("Item1");  
+          l1.addElement("Item2");  
+          l1.addElement("Item3");  
+          l1.addElement("Item4");  
+          JList<String> list = new JList<>(l1);  
+          list.setBounds(100,100, 75,75);  
+          f.add(list);  
+          f.setSize(400,400);  
+          f.setLayout(null);  
+          f.setVisible(true);  
+     }  
+public static void main(String args[])  
+    {  
+   new ListExample();  
+    }}  
+
+jlistwith action listener:
+
+import javax.swing.*;  
+public class ListExample  
+{  
+     ListExample(){  
+        JFrame f= new JFrame();  
+        DefaultListModel<String> l1 = new DefaultListModel<>();  
+          l1.addElement("Item1");  
+          l1.addElement("Item2");  
+          l1.addElement("Item3");  
+          l1.addElement("Item4");  
+          JList<String> list = new JList<>(l1);  
+          list.setBounds(100,100, 75,75);  
+          f.add(list);  
+          f.setSize(400,400);  
+          f.setLayout(null);  
+          f.setVisible(true);  
+     }  
+public static void main(String args[])  
+    {  
+   new ListExample();  
+    }}  
+
+
+joptionpane:
+
+import javax.swing.*;  
+public class OptionPaneExample {  
+JFrame f;  
+OptionPaneExample(){  
+    f=new JFrame();  
+    JOptionPane.showMessageDialog(f,"Hello, Welcome to Javatpoint.");  
+}  
+public static void main(String[] args) {  
+    new OptionPaneExample();  
+}  
+}  
+
+joption pane:showinput dialog:
+
+import javax.swing.*;  
+public class OptionPaneExample {  
+JFrame f;  
+OptionPaneExample(){  
+    f=new JFrame();   
+    String name=JOptionPane.showInputDialog(f,"Enter Name");      
+}  
+public static void main(String[] args) {  
+    new OptionPaneExample();  
+}  
+}  
+
+
+show confirm dialog:
+
+import javax.swing.*;  
+import java.awt.event.*;  
+public class OptionPaneExample extends WindowAdapter{  
+JFrame f;  
+OptionPaneExample(){  
+    f=new JFrame();   
+    f.addWindowListener(this);  
+    f.setSize(300, 300);  
+    f.setLayout(null);  
+    f.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);  
+    f.setVisible(true);  
+}  
+public void windowClosing(WindowEvent e) {  
+    int a=JOptionPane.showConfirmDialog(f,"Are you sure?");  
+if(a==JOptionPane.YES_OPTION){  
+    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+}  
+}  
+public static void main(String[] args) {  
+    new  OptionPaneExample();  
+}     
+}  
+
+
+java jmenuitem:
+import javax.swing.*;  
+class MenuExample  
+{  
+          JMenu menu, submenu;  
+          JMenuItem i1, i2, i3, i4, i5;  
+          MenuExample(){  
+          JFrame f= new JFrame("Menu and MenuItem Example");  
+          JMenuBar mb=new JMenuBar();  
+          menu=new JMenu("Menu");  
+          submenu=new JMenu("Sub Menu");  
+          i1=new JMenuItem("Item 1");  
+          i2=new JMenuItem("Item 2");  
+          i3=new JMenuItem("Item 3");  
+          i4=new JMenuItem("Item 4");  
+          i5=new JMenuItem("Item 5");  
+          menu.add(i1); menu.add(i2); menu.add(i3);  
+          submenu.add(i4); submenu.add(i5);  
+          menu.add(submenu);  
+          mb.add(menu);  
+          f.setJMenuBar(mb);  
+          f.setSize(400,400);  
+          f.setLayout(null);  
+          f.setVisible(true);  
+}  
+public static void main(String args[])  
+{  
+new MenuExample();  
+}}  
+
+edit menu for notepad:
+
+import javax.swing.*;    
+import java.awt.event.*;    
+public class MenuExample implements ActionListener{    
+JFrame f;    
+JMenuBar mb;    
+JMenu file,edit,help;    
+JMenuItem cut,copy,paste,selectAll;    
+JTextArea ta;    
+MenuExample()
+{    
+f=new JFrame();    
+cut=new JMenuItem("cut");    
+copy=new JMenuItem("copy");    
+paste=new JMenuItem("paste");    
+selectAll=new JMenuItem("selectAll");  
+  
+cut.addActionListener(this);    
+copy.addActionListener(this);    
+paste.addActionListener(this);    
+selectAll.addActionListener(this);    
+
+mb=new JMenuBar();    
+file=new JMenu("File");    
+edit=new JMenu("Edit");    
+help=new JMenu("Help"); 
+    
+edit.add(cut);edit.add(copy);edit.add(paste);edit.add(selectAll);   
+ 
+mb.add(file);mb.add(edit);mb.add(help);    
+ta=new JTextArea();    
+ta.setBounds(5,5,360,320);    
+f.add(mb);f.add(ta);    
+f.setJMenuBar(mb);  
+f.setLayout(null);    
+f.setSize(400,400);    
+f.setVisible(true);    
+}     
+public void actionPerformed(ActionEvent e) {    
+if(e.getSource()==cut)    
+ta.cut();    
+if(e.getSource()==paste)    
+ta.paste();    
+if(e.getSource()==copy)    
+ta.copy();    
+if(e.getSource()==selectAll)    
+ta.selectAll();    
+}     
+public static void main(String[] args) {    
+    new MenuExample();    
+}    
+}    
+
+popup menu with action or mouse listener:
+
+import javax.swing.*;  
+import java.awt.event.*;  
+class PopupMenuExample   
+{  
+     PopupMenuExample(){  
+         final JFrame f= new JFrame("PopupMenu Example");  
+         final JLabel label = new JLabel();          
+         label.setHorizontalAlignment(JLabel.CENTER);  
+         label.setSize(400,100);  
+         final JPopupMenu popupmenu = new JPopupMenu("Edit");   
+         JMenuItem cut = new JMenuItem("Cut");  
+         JMenuItem copy = new JMenuItem("Copy");  
+         JMenuItem paste = new JMenuItem("Paste");  
+         popupmenu.add(cut); popupmenu.add(copy); popupmenu.add(paste);        
+         f.addMouseListener(new MouseAdapter() {  
+            public void mouseClicked(MouseEvent e) {              
+                popupmenu.show(f , e.getX(), e.getY());  
+            }                 
+         });  
+        cut.addActionListener(new ActionListener(){  
+         public void actionPerformed(ActionEvent e) {              
+             label.setText("cut MenuItem clicked.");  
+         }  
+        });  
+        copy.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e) {              
+                label.setText("copy MenuItem clicked.");  
+            }  
+           });  
+        paste.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e) {              
+                label.setText("paste MenuItem clicked.");  
+            }  
+           });  
+         f.add(label); f.add(popupmenu);   
+         f.setSize(400,400);  
+         f.setLayout(null);  
+         f.setVisible(true);  
+     }  
+public static void main(String args[])  
+{  
+        new PopupMenuExample();  
+}  
+}  
+
+digital watch:
+
+import javax.swing.*;  
+import java.awt.*;  
+import java.text.*;  
+import java.util.*;  
+public class DigitalWatch implements Runnable{  
+JFrame f;  
+Thread t=null;  
+int hours=0, minutes=0, seconds=0;  
+String timeString = "";  
+JButton b;  
+  
+DigitalWatch(){  
+    f=new JFrame();  
+      
+    t = new Thread(this);  
+    t.start();  
+      
+    b=new JButton();  
+        b.setBounds(100,100,100,50);  
+      
+    f.add(b);  
+    f.setSize(300,400);  
+    f.setLayout(null);  
+    f.setVisible(true);  
+}  
+  
+ public void run() {  
+      try {  
+         while (true) {  
+  
+            Calendar cal = Calendar.getInstance();  
+            hours = cal.get( Calendar.HOUR_OF_DAY );  
+            if ( hours > 12 ) hours -= 12;  
+            minutes = cal.get( Calendar.MINUTE );  
+            seconds = cal.get( Calendar.SECOND );  
+  
+            SimpleDateFormat formatter = new SimpleDateFormat("hh:mm:ss");  
+            Date date = cal.getTime();  
+            timeString = formatter.format( date );  
+  
+            printTime();  
+  
+            t.sleep( 1000 );  // interval given in milliseconds  
+         }  
+      }  
+      catch (Exception e) { }  
+ }  
+  
+public void printTime(){  
+b.setText(timeString);  
+}  
+  
+public static void main(String[] args) {  
+    new DigitalWatch();  
+          
+  
+}  
+}  
+
+change title icon:
+
+import java.awt.*;     
+class IconExample {     
+IconExample(){     
+Frame f=new Frame();     
+Image icon = Toolkit.getDefaultToolkit().getImage("D:\\icon.png");    
+f.setIconImage(icon);    
+f.setLayout(null);     
+f.setSize(400,400);     
+f.setVisible(true);     
+}     
+public static void main(String args[]){     
+new IconExample();     
+}     
+}    
+
+displaying image:
+
+import java.awt.*;  
+import javax.swing.JFrame;  
+  
+public class MyCanvas extends Canvas{  
+      
+    public void paint(Graphics g) {  
+  
+        Toolkit t=Toolkit.getDefaultToolkit();  
+        Image i=t.getImage("p3.gif");  
+        g.drawImage(i, 120,100,this);  
+          
+    }  
+        public static void main(String[] args) {  
+        MyCanvas m=new MyCanvas();  
+        JFrame f=new JFrame();  
+        f.add(m);  
+        f.setSize(400,400);  
+        f.setVisible(true);  
+    }  
+  
+}  
+
+border layout:
+import java.awt.*;  
+import javax.swing.*;  
+  
+public class Border {  
+JFrame f;  
+Border(){  
+    f=new JFrame();  
+      
+    JButton b1=new JButton("NORTH");;  
+    JButton b2=new JButton("SOUTH");;  
+    JButton b3=new JButton("EAST");;  
+    JButton b4=new JButton("WEST");;  
+    JButton b5=new JButton("CENTER");;  
+      
+    f.add(b1,BorderLayout.NORTH);  
+    f.add(b2,BorderLayout.SOUTH);  
+    f.add(b3,BorderLayout.EAST);  
+    f.add(b4,BorderLayout.WEST);  
+    f.add(b5,BorderLayout.CENTER);  
+      
+    f.setSize(300,300);  
+    f.setVisible(true);  
+}  
+public static void main(String[] args) {  
+    new Border();  
+}  
+}  
+
+gridlayout:
+
+import java.awt.*;  
+import javax.swing.*;  
+  
+public class MyGridLayout{  
+JFrame f;  
+MyGridLayout(){  
+    f=new JFrame();  
+      
+    JButton b1=new JButton("1");  
+    JButton b2=new JButton("2");  
+    JButton b3=new JButton("3");  
+    JButton b4=new JButton("4");  
+    JButton b5=new JButton("5");  
+        JButton b6=new JButton("6");  
+        JButton b7=new JButton("7");  
+    JButton b8=new JButton("8");  
+        JButton b9=new JButton("9");  
+          
+    f.add(b1);f.add(b2);f.add(b3);f.add(b4);f.add(b5);  
+    f.add(b6);f.add(b7);f.add(b8);f.add(b9);  
+  
+    f.setLayout(new GridLayout(3,3));  
+    //setting grid layout of 3 rows and 3 columns  
+  
+    f.setSize(300,300);  
+    f.setVisible(true);  
+}  
+public static void main(String[] args) {  
+    new MyGridLayout();  
+}  
+}  
+
+flow layout:
+
+import java.awt.*;  
+import javax.swing.*;  
+  
+public class MyFlowLayout{  
+JFrame f;  
+MyFlowLayout(){  
+    f=new JFrame();  
+      
+    JButton b1=new JButton("1");  
+    JButton b2=new JButton("2");  
+    JButton b3=new JButton("3");  
+    JButton b4=new JButton("4");  
+    JButton b5=new JButton("5");  
+              
+    f.add(b1);f.add(b2);f.add(b3);f.add(b4);f.add(b5);  
+      
+    f.setLayout(new FlowLayout(FlowLayout.RIGHT));  
+    //setting flow layout of right alignment  
+  
+    f.setSize(300,300);  
+    f.setVisible(true);  
+}  
+public static void main(String[] args) {  
+    new MyFlowLayout();  
+}  
+}  
+
+box layout:
+
+import java.awt.*;  
+import javax.swing.*;  
+  
+public class BoxLayoutExample1 extends Frame {  
+ Button buttons[];  
+  
+ public BoxLayoutExample1 () {  
+   buttons = new Button [5];  
+    
+   for (int i = 0;i<5;i++) {  
+      buttons[i] = new Button ("Button " + (i + 1));  
+      add (buttons[i]);  
+    }  
+  
+setLayout (new BoxLayout (this, BoxLayout.Y_AXIS));  
+setSize(400,400);  
+setVisible(true);  
+}  
+  
+public static void main(String args[]){  
+BoxLayoutExample1 b=new BoxLayoutExample1();  
+}  
+}  
+
+card layout:
+
+import java.awt.*;  
+import java.awt.event.*;  
+  
+import javax.swing.*;  
+  
+public class CardLayoutExample extends JFrame implements ActionListener{  
+CardLayout card;  
+JButton b1,b2,b3;  
+Container c;  
+    CardLayoutExample(){  
+          
+        c=getContentPane();  
+        card=new CardLayout(40,30);  
+//create CardLayout object with 40 hor space and 30 ver space  
+        c.setLayout(card);  
+          
+        b1=new JButton("Apple");  
+        b2=new JButton("Boy");  
+        b3=new JButton("Cat");  
+        b1.addActionListener(this);  
+        b2.addActionListener(this);  
+        b3.addActionListener(this);  
+              
+        c.add("a",b1);c.add("b",b2);c.add("c",b3);  
+                          
+    }  
+    public void actionPerformed(ActionEvent e) {  
+    card.next(c);  
+    }  
+  
+    public static void main(String[] args) {  
+        CardLayoutExample cl=new CardLayoutExample();  
+        cl.setSize(400,400);  
+        cl.setVisible(true);  
+        cl.setDefaultCloseOperation(EXIT_ON_CLOSE);  
+    }  
+}
+
+grid baglayout:
+
+import java.awt.Button;  
+import java.awt.GridBagConstraints;  
+import java.awt.GridBagLayout;  
+  
+import javax.swing.*;  
+public class GridBagLayoutExample extends JFrame{  
+    public static void main(String[] args) {  
+            GridBagLayoutExample a = new GridBagLayoutExample();  
+        }  
+        public GridBagLayoutExample() {  
+    GridBagLayoutgrid = new GridBagLayout();  
+            GridBagConstraints gbc = new GridBagConstraints();  
+            setLayout(grid);  
+            setTitle("GridBag Layout Example");  
+            GridBagLayout layout = new GridBagLayout();  
+    this.setLayout(layout);  
+    gbc.fill = GridBagConstraints.HORIZONTAL;  
+    gbc.gridx = 0;  
+    gbc.gridy = 0;  
+    this.add(new Button("Button One"), gbc);  
+    gbc.gridx = 1;  
+    gbc.gridy = 0;  
+    this.add(new Button("Button two"), gbc);  
+    gbc.fill = GridBagConstraints.HORIZONTAL;  
+    gbc.ipady = 20;  
+    gbc.gridx = 0;  
+    gbc.gridy = 1;  
+    this.add(new Button("Button Three"), gbc);  
+    gbc.gridx = 1;  
+    gbc.gridy = 1;  
+    this.add(new Button("Button Four"), gbc);  
+    gbc.gridx = 0;  
+    gbc.gridy = 2;  
+    gbc.fill = GridBagConstraints.HORIZONTAL;  
+    gbc.gridwidth = 2;  
+    this.add(new Button("Button Five"), gbc);  
+            setSize(300, 300);  
+            setPreferredSize(getSize());  
+            setVisible(true);  
+            setDefaultCloseOperation(EXIT_ON_CLOSE);  
+      
+        }  
+      
+}  
+
+group layout:
+public class GroupExample {  
+    public static void main(String[] args) {  
+        JFrame frame = new JFrame("GroupLayoutExample");  
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+        Container contentPanel = frame.getContentPane();  
+        GroupLayout groupLayout = new GroupLayout(contentPanel);  
+  
+        contentPanel.setLayout(groupLayout);  
+  
+        JLabel clickMe = new JLabel("Click Here");  
+        JButton button = new JButton("This Button");  
+  
+        groupLayout.setHorizontalGroup(  
+                    groupLayout.createSequentialGroup()  
+                                .addComponent(clickMe)  
+                                .addGap(10, 20, 100)  
+                                .addComponent(button));  
+        groupLayout.setVerticalGroup(  
+                     groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)  
+                                .addComponent(clickMe)  
+                                .addComponent(button));  
+        frame.pack();  
+        frame.setVisible(true);  
+    }  
+}  
+
+
+Java Grouplayout 1
+Example 2
+import java.awt.Container;  
+import javax.swing.GroupLayout;  
+import javax.swing.JButton;  
+import javax.swing.JFrame;  
+import static javax.swing.GroupLayout.Alignment.*;  
+public class GroupExample2 {  
+    public static void main(String[] args) {  
+        JFrame frame = new JFrame("GroupLayoutExample");  
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+        Container myPanel = frame.getContentPane();  
+  
+        GroupLayout groupLayout = new GroupLayout(myPanel);  
+        groupLayout.setAutoCreateGaps(true);  
+        groupLayout.setAutoCreateContainerGaps(true);  
+        myPanel.setLayout(groupLayout);  
+  
+        JButton b1 = new JButton("Button One");  
+        JButton b2 = new JButton("Button Two");  
+        JButton b3 = new JButton("Button Three");  
+  
+        groupLayout.setHorizontalGroup(groupLayout.createSequentialGroup()  
+                .addGroup(groupLayout.createParallelGroup(LEADING).addComponent(b1).addComponent(b3))  
+                .addGroup(groupLayout.createParallelGroup(TRAILING).addComponent(b2)));  
+  
+        groupLayout.setVerticalGroup(groupLayout.createSequentialGroup()  
+                .addGroup(groupLayout.createParallelGroup(BASELINE).addComponent(b1).addComponent(b2))  
+                .addGroup(groupLayout.createParallelGroup(BASELINE).addComponent(b3)));  
+  
+        frame.pack();  
+        frame.setVisible(true);  
+    }  
+}  
+
+spring layout:
+
+import java.awt.Container;  
+import javax.swing.JFrame;  
+import javax.swing.JLabel;  
+import javax.swing.JTextField;  
+import javax.swing.SpringLayout;  
+public class MySpringDemo {  
+     private static void createAndShowGUI() {  
+            JFrame frame = new JFrame("MySpringDemp");  
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+  
+            Container contentPane = frame.getContentPane();  
+            SpringLayout layout = new SpringLayout();  
+            contentPane.setLayout(layout);  
+  
+            JLabel label = new JLabel("Label: ");  
+            JTextField textField = new JTextField("My Text Field", 15);  
+            contentPane.add(label);  
+            contentPane.add(textField);  
+       
+            layout.putConstraint(SpringLayout.WEST, label,6,SpringLayout.WEST, contentPane);  
+            layout.putConstraint(SpringLayout.NORTH, label,6,SpringLayout.NORTH, contentPane);  
+            layout.putConstraint(SpringLayout.WEST, textField,6,SpringLayout.EAST, label);  
+            layout.putConstraint(SpringLayout.NORTH, textField,6,SpringLayout.NORTH, contentPane);  
+            layout.putConstraint(SpringLayout.EAST, contentPane,6,SpringLayout.EAST, textField);  
+            layout.putConstraint(SpringLayout.SOUTH, contentPane,6,SpringLayout.SOUTH, textField);  
+  
+            frame.pack();  
+            frame.setVisible(true);  
+        }  
+        public static void main(String[] args) {  
+            javax.swing.SwingUtilities.invokeLater(new Runnable() {  
+                public void run() {  
+                    createAndShowGUI();  
+                }  
+            });  
+        }  
+    }  
+
+scrollpane layout:
+
+import javax.swing.ImageIcon;  
+import javax.swing.JFrame;  
+import javax.swing.JLabel;  
+import javax.swing.JScrollPane;  
+public class ScrollPaneDemo extends JFrame  
+{  
+public ScrollPaneDemo() {  
+super("ScrollPane Demo");  
+ImageIcon img = new ImageIcon("child.png");  
+  
+JScrollPane png = new JScrollPane(new JLabel(img));  
+  
+getContentPane().add(png);  
+setSize(300,250);  
+setVisible(true);  
+}  
+  
+public static void main(String[] args) {  
+new ScrollPaneDemo();  
+}  
+}  
+
+
