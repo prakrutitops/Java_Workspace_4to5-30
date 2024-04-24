@@ -1,3 +1,36 @@
+===================================
+DML
+11. insert data
+insert into tablename (database Field nm) values ('control value')
+
+12. multiple value insert
+INSERT INTO tablename (countrynm) VALUES('india'), ('pakistan')
+
+
+13. update data
+update tablenm set databasefieldnm='controlvalue' where id='id'
+
+14. delete data
+delete from tablenm where id='id'
+======================================
+DQL
+15. select all
+select * from tablenm
+
+16. particular column dispaly
+SELECT columnnm from tablenm
+
+17. particular row display
+select * from tablenm where id='id' 
+
+18.order by
+select colnm from tblnm order by colnm asc/desc
+------------------------------------------------------------------------------------------
+18. join
+select * from state join coun on state.cid=coun.cid
+
+19.commit:
+START TRANSACTION;
 1)Scalar Functions:
 UCASE->SELECT UCASE(NAME) FROM Students; 
 LCASE->SELECT LCASE(NAME) FROM Students; 
