@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 import javax.swing.JButton;
@@ -72,5 +73,41 @@ public class AllOperations
 		insertframe.setSize(500,500);
 		insertframe.setLayout(new FlowLayout());
 		insertframe.setVisible(true);
+	}
+	public void viewdata()
+	{
+		String host="jdbc:mysql://localhost:3306/";
+		String db="acer";
+		String url = host+db;
+		
+		try 
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection(url,"root","");
+			String sql ="select * from info";
+			Statement stmt = con.createStatement();
+			ResultSet set = stmt.executeQuery(sql);
+			
+			System.out.println("\t ID  \t NAME \t  SURNAME");
+			while(set.next())
+			{
+				int id = set.getInt(1);
+				String name = set.getString(2);
+				String surname = set.getString(3);
+			
+				System.out.println("\t "+id+"  \t "+name+" \t  "+surname+"");
+
+			}
+			System.out.println();
+			
+		}
+		catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 }

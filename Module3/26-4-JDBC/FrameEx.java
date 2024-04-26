@@ -22,6 +22,7 @@ public class FrameEx implements ActionListener
 		delete = new JButton("Delete");
 		
 		insert.addActionListener(this);
+		view.addActionListener(this);
 		
 		frame.add(insert);
 		frame.add(view);
@@ -44,6 +45,10 @@ public class FrameEx implements ActionListener
 		if(e.getSource()==insert)
 		{
 			a.insertdata();
+		}
+		if(e.getSource()==view)
+		{
+			a.viewdata();
 		}
 	
 	}
