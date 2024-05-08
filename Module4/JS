@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type='text/javascript'>
+function emailValidator1(elem, helperMsg){
+	
+	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+	
+	if(elem.value.match(emailExp)){
+		return true;
+	}else{
+		alert(helperMsg);
+		elem.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+
+<form>
+Email: <input type='text' id='emailer'/>
+<input type='button' 
+	onclick="emailValidator1(document.getElementById('emailer'), 'Not a Valid Email')"
+	value='Check Field' />
+</form>
+
+</body>
+</html>
+
+
+------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type='text/javascript'>
+function lengthRestriction(elem, min, max){
+	var uInput = elem.value;
+	if(uInput.length >= min && uInput.length <= max)
+	{
+		return true;
+	}
+	else
+	{
+		alert("Please enter between " +min+ " and " +max+ " characters");
+		elem.focus();
+		return false;
+	}
+}
+</script>
+
+
+</head>
+<body>
+
+<form>
+Username(6-8 characters): <input type='text' id='restrict'/>
+<input type='button' onclick="lengthRestriction(document.getElementById('restrict'), 6, 8)"
+	value='Check Field' />
+</form>
+
+</body>
+</html>
