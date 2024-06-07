@@ -8,9 +8,12 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"/>
 
-<jsp:include page="footer.jsp"/>
+<%
+	session.removeAttribute("webwing");
+	session.invalidate();
+	response.sendRedirect("index.jsp");
+%>
 
 </body>
 </html>

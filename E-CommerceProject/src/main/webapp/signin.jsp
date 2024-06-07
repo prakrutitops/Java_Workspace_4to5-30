@@ -16,7 +16,7 @@
 		
 		<br>
 		
-		<form name="registrationForm" action="register.jsp"  method="get" onsubmit="return validateForm()">
+		<form name="loginform" action="login.jsp"  method="get" onsubmit="return validateForm()">
 			
 			<!-- form-group// -->
 			<div class="form-group input-group">

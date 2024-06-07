@@ -57,31 +57,5 @@
 	%>
 
 
-	<%-- <%
-		int signupstatus = Dao.signup(m);
-		
-		if(signupstatus>0)
-		{
-			response.sendRedirect("signin.jsp");
-		}
-		else
-		{
-				
-		%>
-		<br>
-		<center>
-				
-				<b><p style="color:red;font-family: sans-serif; font-size: 25px;">Signup Failed!! Please Try Again</p></b>
-			</center>
-
-			<br>
-			<br>
-		<%@ include file="signup.jsp"%>
-	
-		<%
-		}
-		%> --%>
-
-
 </body>
 </html>
