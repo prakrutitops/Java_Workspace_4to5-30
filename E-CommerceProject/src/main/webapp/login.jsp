@@ -24,6 +24,7 @@
 		SignupModel m2 = Dao.login(m);
 		if(m2!=null)
 		{
+			
 			session.setAttribute("webwing", true);
 			session.setAttribute("email", email);
 			session.setAttribute("name", m2.getName());

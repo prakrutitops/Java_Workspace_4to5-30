@@ -106,19 +106,19 @@
                        	{
                        		
                        	
-                       %>
+                       %> 
                         	
-                       <p style="color: white;">Your Name is <%=session.getAttribute("name") %> 	
-                       <p style="color: white;">Your Email is <%=session.getAttribute("email") %> 	
-                       <p style="color: white;">Your Number is <%=session.getAttribute("phone") %> 	
+                      <b><p style="color: white;">Your Name is <%=session.getAttribute("name") %></b>
+                      <b><p style="color: white;">Your Email is <%=session.getAttribute("email") %></b> 	
+                      <b><p style="color: white;">Your Number is <%=session.getAttribute("phone") %></b> 	
                         	
-                        <%
+                       <%
                        	}
                        	else
                        	{
                        		
                        	}
-                        %>	
+                        %>	 
                      </ul>
                   </div>
                </div>
@@ -164,12 +164,12 @@
                                  <a class="nav-link" href="contact.html"> contact us </a>
                               </li>
                               
-                              <%
+                           <%
                               	if(session.getAttribute("webwing")!=null)
                               	{
                               		
                               	
-                              %>
+                              %> 
                               
                               <li class="nav-item">
                                  <a class="nav-link" href="service.html">services</a>
@@ -180,7 +180,7 @@
                               <li class="nav-item">
                                  <a class="nav-link" href="client.html">Clients</a>
                               </li>
-                              
+                            
                               <%
                               	}
                               %>
@@ -190,7 +190,7 @@
                      </nav>
                   </div>
                   <div class="col-md-3 col-sm-5 d_none">
-                  
+                   
                   		<%
                   			if(session.getAttribute("webwing")!=null)
                   			{
@@ -205,14 +205,14 @@
                   			{
                   				
                   			
-                  		%>
+                  		%> --%>
                   
                          <a class="swd-button" href="signup.jsp">sign up </a>
                      	<a class="swd-button" href="signin.jsp">sign in </a>
                      	
-                     	<%
+                 		 	<%
                   			}
-                     	%>
+                     	%> 
                   </div>
                </div>
             </div>
