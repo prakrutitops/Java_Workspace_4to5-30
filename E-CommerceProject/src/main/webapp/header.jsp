@@ -172,13 +172,13 @@
                               %> 
                               
                               <li class="nav-item">
-                                 <a class="nav-link" href="service.html">services</a>
+                                 <a class="nav-link" href="product.jsp">products</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="team.html">team </a>
+                                 <a class="nav-link" href="wishlist.jsp">wishlist</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="client.html">Clients</a>
+                                 <a class="nav-link" href="cart.jsp">Cart</a>
                               </li>
                             
                               <%

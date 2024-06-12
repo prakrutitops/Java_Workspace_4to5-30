@@ -5,8 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.List;
 import com.model.AdminModel;
+import com.model.ImageModel;
 import com.model.SignupModel;
 
 
@@ -119,6 +122,43 @@ public class Dao
 	  return m2;
 	  
 	  }
+	  
+		public static List<ImageModel> getAll()
+		{
+			List<ImageModel> i = new ArrayList<ImageModel>();
+			try {
+				
+				Connection con = Dao.getconnect();
+				PreparedStatement ps= con.prepareStatement("select * from products");
+				
+				ResultSet rs = (ResultSet) ps.executeQuery();
+				
+				while(rs.next())
+				{
+					ImageModel d1 = new ImageModel();
+					d1 = new ImageModel();
+					d1.setP_id(rs.getInt("p_id"));
+					d1.setP_name(rs.getString("p_name"));
+					d1.setP_price(rs.getString("p_price"));
+					d1.setP_des(rs.getString("p_des"));
+					//d1.setP_quantity(rs.getString("p_quantity"));
+					//d1.setP_image(rs.getString("p_image"));
+					
+					 byte[] imgData = rs.getBytes("p_image"); // blob field 
+			         String encode = Base64.getEncoder().encodeToString(imgData);
+			         d1.setP_image(encode);
+			         //request.setAttribute("imgBase", encode);
+					i.add(d1);
+					
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			return i;
+		}
+		
 	 
 	
 }
