@@ -154,14 +154,17 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">
                               <li class="nav-item active">
-                                 <a class="nav-link" href="index.html"> Home </a>
+                                 <a class="nav-link" href="index.jsp"> Home </a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="about.html">about</a>
+                                 <a class="nav-link" href="about.jsp">about</a>
                               </li>
                               
                                 <li class="nav-item">
-                                 <a class="nav-link" href="contact.html"> contact us </a>
+                                 <a class="nav-link" href="contact.jsp"> contact us </a>
+                              </li>
+                               <li class="nav-item">
+                                 <a class="nav-link" href="product.jsp">products</a>
                               </li>
                               
                            <%
@@ -171,9 +174,7 @@
                               	
                               %> 
                               
-                              <li class="nav-item">
-                                 <a class="nav-link" href="product.jsp">products</a>
-                              </li>
+                             
                               <li class="nav-item">
                                  <a class="nav-link" href="wishlist.jsp">wishlist</a>
                               </li>

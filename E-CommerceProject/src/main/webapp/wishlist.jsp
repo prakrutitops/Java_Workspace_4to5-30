@@ -1,10 +1,12 @@
+<%@page import="com.model.WishlistModel"%>
+<%@page import="com.dao.Dao"%>
 <%@page import="com.Imadata.ImageDao"%>
 <%@page import="com.Imadata.ImageModel"%>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Product Grid View</title>
+    <title>Wishlist</title>
 
     <style>
         .product-grid {
@@ -47,10 +49,10 @@
         // Your Java code to retrieve product data from the database goes here
         // For demonstration purposes, let's assume you have a list of Product objects
         
-        List<ImageModel> list = ImageDao.getAll();// Method to retrieve product data from the database
+        List<WishlistModel> list = Dao.wishlistgetAll();// Method to retrieve product data from the database
         
         // Iterate over the product list and generate HTML for each product
-         for (ImageModel m : list) 
+         for (WishlistModel m : list) 
         {
         %>
         <div class="product">
@@ -67,14 +69,14 @@
            <input type="text" name="counter" value="1" style="width: 35px;">
           <a href="counter.jsp"><img al	t="minus" src="icon/minus.png" width="25" height="25"><input type="text" name="minus"></a>   --> 
           
-         <form action="addtowishlist.jsp">
+         <form action="addtocart2.jsp">
             	<input type="hidden" name="id" value="<%=m.getId()%>">
-            	<input type="submit" class="swd-button" value="Wishlist">
+            	<input type="submit" class="swd-button" value="add to cart">
             </form>
             
-          <form action="addtocart.jsp">
+          <form action="deletewishlist.jsp">
             	<input type="hidden" name="id" value="<%=m.getId()%>">
-            	<input type="submit" class="swd-button" value="Cart">
+            	<input type="submit" class="swd-button" value="Remove">
           </form>
           
             

@@ -8,9 +8,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
+
+import com.Imadata.ImageDao;
+import com.Imadata.ImageModel;
 import com.model.AdminModel;
-import com.model.ImageModel;
+import com.model.CartModel;
 import com.model.SignupModel;
+import com.model.WishlistModel;
 
 
 public class Dao 
@@ -122,26 +126,26 @@ public class Dao
 	  return m2;
 	  
 	  }
-	  
-		public static List<ImageModel> getAll()
+
+	  public static List<WishlistModel> wishlistgetAll()
 		{
-			List<ImageModel> i = new ArrayList<ImageModel>();
+			List<WishlistModel> i = new ArrayList<WishlistModel>();
 			try {
 				
 				Connection con = Dao.getconnect();
-				PreparedStatement ps= con.prepareStatement("select * from products");
+				PreparedStatement ps= con.prepareStatement("select * from wishlist");
 				
 				ResultSet rs = (ResultSet) ps.executeQuery();
 				
 				while(rs.next())
 				{
-					ImageModel d1 = new ImageModel();
-					d1 = new ImageModel();
-					d1.setP_id(rs.getInt("p_id"));
+					WishlistModel d1 = new WishlistModel();
+					d1 = new WishlistModel();
+					d1.setId(rs.getInt("id"));
 					d1.setP_name(rs.getString("p_name"));
 					d1.setP_price(rs.getString("p_price"));
 					d1.setP_des(rs.getString("p_des"));
-					//d1.setP_quantity(rs.getString("p_quantity"));
+					
 					//d1.setP_image(rs.getString("p_image"));
 					
 					 byte[] imgData = rs.getBytes("p_image"); // blob field 
@@ -158,7 +162,142 @@ public class Dao
 			
 			return i;
 		}
+	  public static List<CartModel> cartgetAll()
+		{
+			List<CartModel> i = new ArrayList<CartModel>();
+			try {
+				
+				Connection con = Dao.getconnect();
+				PreparedStatement ps= con.prepareStatement("select * from cart");
+				
+				ResultSet rs = (ResultSet) ps.executeQuery();
+				
+				while(rs.next())
+				{
+					CartModel d1 = new CartModel();
+					d1 = new CartModel();
+					d1.setId(rs.getInt("id"));
+					d1.setP_name(rs.getString("p_name"));
+					d1.setP_price(rs.getString("p_price"));
+					d1.setP_des(rs.getString("p_des"));
+					
+					//d1.setP_image(rs.getString("p_image"));
+					
+					 byte[] imgData = rs.getBytes("p_image"); // blob field 
+			         String encode = Base64.getEncoder().encodeToString(imgData);
+			         d1.setP_image(encode);
+			         //request.setAttribute("imgBase", encode);
+					i.add(d1);
+					
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			return i;
+		}
+	  
+	  
+	  public static WishlistModel getimageindexwise(int id)
+		{
+			Connection con = ImageDao.getconnection();
+			
+			WishlistModel m = new WishlistModel();
+			
+			String sql ="select * from wishlist where id=?";
+			
+			try 
+			{
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setInt(1,id);
+				
+				ResultSet set = ps.executeQuery();
+				
+				if(set.next())
+				{
+					
+						
+					
+					 byte[] imgData = set.getBytes("p_image"); // blob field 
+			         String encode = Base64.getEncoder().encodeToString(imgData);
+			         
+			         int id1 = set.getInt("id");
+			         String pname = set.getString("p_name");
+			         String pprice = set.getString("p_price");
+			         String pdes = set.getString("p_des");
+					
+			        
+			         m.setId(id);
+			         m.setP_image(encode);
+					m.setP_name(pname);
+					m.setP_price(pprice);
+					m.setP_des(pdes);
+					
+					
+					
+				}
+				
+				//get all details from model
+				
+				
+				
+			}
+			catch (Exception e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			return m;
+		}
+	  
+	
+		public static int wishlistdelete(int id)
+		{
+			Connection con =Dao.getconnect();
+			int status = 0;
+			
+			try 
+			{
+				PreparedStatement ps = con.prepareStatement("delete from wishlist where id=?");
+				ps.setInt(1,id);
+				
+				
+				
+				status = ps.executeUpdate();
+			}
+			catch (Exception e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return status;
+		}
 		
-	 
+		public static int cartdelete(int id)
+		{
+			Connection con =Dao.getconnect();
+			int status = 0;
+			
+			try 
+			{
+				PreparedStatement ps = con.prepareStatement("delete from cart where id=?");
+				ps.setInt(1,id);
+				
+				
+				
+				status = ps.executeUpdate();
+			}
+			catch (Exception e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return status;
+		}
 	
 }
