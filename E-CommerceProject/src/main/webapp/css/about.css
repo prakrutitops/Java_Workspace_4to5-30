@@ -1,0 +1,7 @@
+@charset "ISO-8859-1";
+.about-us .about-details {
+  width: 60%;
+  margin: 0 auto;
+  font-weight: 600;
+  text-align: justify;
+}
