@@ -14,5 +14,7 @@
 	<classpathentry kind="lib" path="E:/ProjectWork/ProjectWork/src/main/webapp/WEB-INF/lib/activation-1.1.jar"/>
 	<classpathentry kind="lib" path="E:/ProjectWork/ProjectWork/src/main/webapp/WEB-INF/lib/javax.mail-1.6.2.jar"/>
 	<classpathentry kind="lib" path="E:/ProjectWork/ProjectWork/src/main/webapp/WEB-INF/lib/mail_1.4.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Hibernate Jar/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/url-2.0.0.jar/url-2.0.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

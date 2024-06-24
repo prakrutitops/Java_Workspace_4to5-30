@@ -13,6 +13,7 @@ import com.Imadata.ImageDao;
 import com.Imadata.ImageModel;
 import com.model.AdminModel;
 import com.model.CartModel;
+import com.model.ContactModel;
 import com.model.SignupModel;
 import com.model.WishlistModel;
 
@@ -288,6 +289,30 @@ public class Dao
 				ps.setInt(1,id);
 				
 				
+				
+				status = ps.executeUpdate();
+			}
+			catch (Exception e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return status;
+		}
+		
+		public static int contactinsert(ContactModel m)
+		{
+			Connection con =Dao.getconnect();
+			int status = 0;
+			
+			try 
+			{
+				PreparedStatement ps = con.prepareStatement("insert  into contact (name,email,subject,message) values (?,?,?,?)");
+				ps.setString(1,m.getName());
+				ps.setString(2,m.getEmail());
+				ps.setString(3,m.getSubject());
+				ps.setString(4,m.getMessage());
 				
 				status = ps.executeUpdate();
 			}
