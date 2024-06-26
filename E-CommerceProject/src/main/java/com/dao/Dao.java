@@ -63,6 +63,32 @@ public class Dao
 		return status;
 	}
 	
+	public static int updatequery(ContactModel m)
+	{
+		Connection con =Dao.getconnect();
+		int status = 0;
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("update contact set name=? ,email=?, subject=? ,message=? ,status=? where id=?");
+			ps.setString(1,m.getName());
+			ps.setString(2,m.getEmail());
+			ps.setString(3,m.getSubject());
+			ps.setString(4,m.getMessage());
+			ps.setString(5,m.getStatus());
+			ps.setInt(6,m.getId());
+			
+			status = ps.executeUpdate();
+		}
+		catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return status;
+	}
+	
 	public static SignupModel login(SignupModel m)
 	{
 		SignupModel m2=null;
@@ -308,11 +334,12 @@ public class Dao
 			
 			try 
 			{
-				PreparedStatement ps = con.prepareStatement("insert  into contact (name,email,subject,message) values (?,?,?,?)");
+				PreparedStatement ps = con.prepareStatement("insert  into contact (name,email,subject,message,status) values (?,?,?,?,?)");
 				ps.setString(1,m.getName());
 				ps.setString(2,m.getEmail());
 				ps.setString(3,m.getSubject());
 				ps.setString(4,m.getMessage());
+				ps.setString(5,m.getStatus());
 				
 				status = ps.executeUpdate();
 			}

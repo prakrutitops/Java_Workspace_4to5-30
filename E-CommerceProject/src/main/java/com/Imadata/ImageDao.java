@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
+import com.model.ContactModel;
+
 
 
 public class ImageDao {
@@ -54,6 +56,41 @@ public class ImageDao {
 		         String encode = Base64.getEncoder().encodeToString(imgData);
 		         d1.setP_image(encode);
 		         //request.setAttribute("imgBase", encode);
+				i.add(d1);
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return i;
+	}
+	
+	public static List<ContactModel> contactdetails()
+	{
+		java.util.List<ContactModel> i = new ArrayList<ContactModel>();
+		try {
+			
+			Connection con = ImageDao.getconnection();
+			PreparedStatement ps= con.prepareStatement("select * from contact");
+			
+			ResultSet rs = (ResultSet) ps.executeQuery();
+			
+			while(rs.next())
+			{
+				ContactModel d1 = new ContactModel();
+				d1 = new ContactModel();
+				d1.setId(rs.getInt("id"));
+				d1.setName(rs.getString("name"));
+				d1.setEmail(rs.getString("email"));
+				d1.setSubject(rs.getString("subject"));
+				d1.setMessage(rs.getString("message"));
+				d1.setStatus(rs.getString("status"));
+				
+				//d1.setP_image(rs.getString("p_image"));
+				
+				
 				i.add(d1);
 				
 			}

@@ -43,14 +43,16 @@ setTimeout(function()
 	String email = request.getParameter("email");
 	String subject = request.getParameter("subject");
 	String message = request.getParameter("message");
+	String status = "pending";
 	
 	ContactModel m = new ContactModel();
 	m.setName(name);
 	m.setEmail(email);
 	m.setSubject(subject);
 	m.setMessage(message);
+	m.setStatus(status);
 	
-	int status = Dao.contactinsert(m);
+	 Dao.contactinsert(m);
 %>
 
 <form action="https://api.web3forms.com/submit" method="POST" >

@@ -3,7 +3,7 @@ package com.model;
 public class ContactModel 
 {
 	int id;
-	String name,email,subject,message;
+	String name,email,subject,message,status;
 	public int getId() {
 		return id;
 	}
@@ -33,6 +33,12 @@ public class ContactModel
 	}
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

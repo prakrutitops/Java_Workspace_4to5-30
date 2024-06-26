@@ -1,3 +1,4 @@
+<%@page import="com.model.ContactModel"%>
 <%@page import="java.util.List"%>
 <%@page import="com.Imadata.ImageDao"%>
 <%@page import="com.Imadata.ImageModel"%>
@@ -91,20 +92,22 @@
         <h2>Welcome to the Admin Panel</h2>
        	  <table class="scroll table table-bordered  ">
          <thead>
-            <th>Product Name</th>
-			<th>Product Price</th>
-			<th>Product Description</th>
-			<th>Product Image</th>
-			
+            <th>Name</th>
+			<th>Email</th>
+			<th>Subject</th>
+			<th>Message</th>
+			<th>Status</th>
+			<th>Action</th>
          </thead>
          <tbody>
            <%
-			List<ImageModel> list = ImageDao.getAll();
-			for(ImageModel m : list)
+			List<ContactModel> list = ImageDao.contactdetails();
+			for(ContactModel m : list)
 			{
 			%>
 			<tr>
-				</td><td><%=m.getP_name() %></td><td><%=m.getP_price() %></td><td><%=m.getP_des() %></td><td><img src="data:image/jpeg;base64,<%=m.getP_image()%>" width="150px" height="200px" /></td>
+				<td><%=m.getName() %></td><td><%=m.getEmail() %></td><td><%=m.getSubject() %></td><td><%=m.getMessage() %></td><td><%=m.getStatus() %></td>
+				<td><a href="queryedit.jsp">Edit</a></td>
 			</tr>	
 			
 			<%
