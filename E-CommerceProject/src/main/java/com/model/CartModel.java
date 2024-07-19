@@ -3,7 +3,7 @@ package com.model;
 public class CartModel {
 
 	private int id;
-	private  String p_name,p_price,p_des,p_image;
+	private  String p_name,p_price,p_des,p_image,fp;
 	
 	
 	public int getId() {
@@ -36,4 +36,12 @@ public class CartModel {
 	public void setP_image(String p_image) {
 		this.p_image = p_image;
 	}
+	public String getFp() {
+		return fp;
+	}
+	public void setFp(String fp) {
+		this.fp = fp;
+	}
+	
+	
 }

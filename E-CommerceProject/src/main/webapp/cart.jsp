@@ -38,10 +38,106 @@
 				text-transform: uppercase;
 				margin-top: 15px;
 			}
+			
+			form {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.value-button {
+  display: inline-block;
+  border: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 11px 0;
+  background: #eee;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+form #decrease {
+  margin-right: -4px;
+  border-radius: 8px 0 0 8px;
+}
+
+form #increase {
+  margin-left: -4px;
+  border-radius: 0 8px 8px 0;
+}
+
+form #input-wrap {
+  margin: 0px;
+  padding: 0px;
+}
+
+input#number {
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
         
     </style>
+    
+    <script type="text/javascript">
+
+    function decreaseQuantity(element) {
+        var input = element.nextElementSibling;
+        var value = parseInt(input.value, 10);
+        if (value > 0) {
+            input.value = value - 1;
+        }
+    }
+
+    // Function to increase quantity
+    function increaseQuantity(element) {
+        var input = element.previousElementSibling;
+        var value = parseInt(input.value, 10);
+        input.value = value + 1;
+    }
+
+    // Function to get final quantity
+    function getFinalQuantity() {
+        var products = document.getElementsByClassName('product');
+        var totalQuantity = 0;
+        
+        for (var i = 0; i < products.length; i++) {
+            var quantityInput = products[i].querySelector('.quantity-input');
+            var quantity = parseInt(quantityInput.value, 10);
+            totalQuantity += quantity;
+        }
+        
+        console.log('Final Quantity:', totalQuantity);
+        // You can use `totalQuantity` variable for further processing
+    }
+    </script>
+    
+    
 </head>
 <body>
+
 
 	<jsp:include page="header.jsp"/>    
 	
@@ -59,17 +155,11 @@
         <div class="product">
             <img src="data:image/jpeg;base64,<%=m.getP_image()%>" width="150px" height="200px" />
             <h3><%= m.getP_name() %></h3>
-            <p>Price: <%= m.getP_price() %></p>
+            <p>Price: <%= m.getFp() %></p>
             
-           
           
-			<%-- <p><%=currAmount%></p> --%>
-           
-  <!-- 
-     <a href="counter.jsp"><img alt="plus" src="icon/plus.png" width="25" height="25"><input type="text" name="plus"></a>  
-           <input type="text" name="counter" value="1" style="width: 35px;">
-          <a href="counter.jsp"><img al	t="minus" src="icon/minus.png" width="25" height="25"><input type="text" name="minus"></a>   --> 
-          
+      		
+      		
         
           <form action="deletecart.jsp">
             	<input type="hidden" name="id" value="<%=m.getId()%>">

@@ -207,7 +207,7 @@ public class Dao
 					d1.setP_name(rs.getString("p_name"));
 					d1.setP_price(rs.getString("p_price"));
 					d1.setP_des(rs.getString("p_des"));
-					
+					d1.setFp(rs.getString("fp"));
 					//d1.setP_image(rs.getString("p_image"));
 					
 					 byte[] imgData = rs.getBytes("p_image"); // blob field 

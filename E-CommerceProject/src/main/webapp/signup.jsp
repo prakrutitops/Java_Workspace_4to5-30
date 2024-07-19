@@ -4,18 +4,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Sign Up-WebWing</title>
 <script type="text/javascript">
-	
-function validateForm()
-{
-	 var fullname = document.forms["registrationForm"]["fullname"].value;
+
+ // JavaScipt validation
+ function validateForm()
+ {
+	 var name = document.forms["registrationForm"]["name"].value;
 	 var email = document.forms["registrationForm"]["email"].value;
 	 var phone= document.forms["registrationForm"]["phone"].value;
 	 var password = document.forms["registrationForm"]["password"].value;
 	 var repassword = document.forms["registrationForm"]["repassword"].value;
 	 
-	 if(fullname =="" || email =="" || phone =="" || password =="" || repassword =="")
+	 if(name =="" || email =="" || phone =="" || password =="" || repassword =="")
 		 {
 		    alert('All Fields are mandatory!!');
 		    return false;
@@ -29,7 +30,7 @@ function validateForm()
 		 {
 		    return true;
 		 }
-	 if(isAlphabet(fullname, "Please enter letters only for your Fullname!!"))
+	 if(isAlphabet(name, "Please enter letters only for your Fullname!!"))
 	   {
 		 return true;
 	   }
@@ -53,26 +54,26 @@ function validateForm()
 		 {
 		   return false;
 		 }
-}
-// Validating phone number
-function isNumeric(elem, helperMsg)
-{
-	var numericExpression = /^[0-9]+$/;
-	if(elem.value.match(numericExpression))
-    {
-		return true;
-	}
-	else
-	{
-		alert(helperMsg);
-		elem.focus();
-		return false;
-	}
-}
-
-// Validating password and confirmPassword
-function isEquals(elem, helperMsg)
-{
+ }
+ // Validating phone number
+ function isNumeric(elem, helperMsg)
+ {
+ 	var numericExpression = /^[0-9]+$/;
+ 	if(elem.value.match(numericExpression))
+     {
+ 		return true;
+ 	}
+ 	else
+ 	{
+ 		alert(helperMsg);
+ 		elem.focus();
+ 		return false;
+ 	}
+ }
+ 
+ // Validating password and confirmPassword
+ function isEquals(elem, helperMsg)
+ {
 	 if(repassword.equals(password))
 		 {
 		    return true;
@@ -83,11 +84,11 @@ function isEquals(elem, helperMsg)
 		    elem.focus();
 		    return false;
 		 }
-}
-
-// Validating Name Field
-function isAlphabet(elem, helperMsg)
-{
+ }
+ 
+ // Validating Name Field
+ function isAlphabet(elem, helperMsg)
+ {
 	 var alphaExp = /^[a-zA-Z]+$/;
 	  if(elem.value.match(alphaExp))
 		  {
@@ -99,11 +100,11 @@ function isAlphabet(elem, helperMsg)
 		     elem.focus();
 		     return false;
 		  }
-}
-
-// Length Restriction
-function lengthRestriction(elem, min, max)
-{
+ }
+ 
+ // Length Restriction
+ function lengthRestriction(elem, min, max)
+ {
 	 var uInput = elem.value;
 	 if(uInput.length >= min && uInput.length <= max)
 		 {
@@ -115,48 +116,66 @@ function lengthRestriction(elem, min, max)
 		    elem.focus();
 		    return false;
 		 }
-}
-// Email validator
- function emailValidator(elem, helperMsg)
-{
- var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-  if(elem.value.match(emailExp)){
- 	return true;
-   }
-   else
-   {
-      alert(helperMsg);
-      elem.focus();
-       return false;
-   }
  }
+ // Email validator
+  function emailValidator(elem, helperMsg)
+ {
+  var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+   if(elem.value.match(emailExp)){
+  	return true;
+    }
+    else
+    {
+       alert(helperMsg);
+       elem.focus();
+        return false;
+    }
+  }
 
-
+ 
+ // AJAX Email verification
+ function verifyEmail()
+ {
+	 var email = document.forms["registrationForm"]["email"].value;
+	 $.ajax({
+		 type: 'POST', url: 'validatorAjax.jsp', data: {email: email},
+		 success: function (response) 
+		 {
+			 if(response === "available")
+				 {
+				    alert("Email is available.");
+				 }
+			 else if(response === "unavailable")
+				 {
+				    alert("Email already exists, try entering another Email.")
+				 }
+		 }
+	 });
+ }
 </script>
-
-
-
-
 </head>
 <body>
 
 	<jsp:include page="header.jsp"/>
 	
-			
+		
+		
+		
 	<div class="card bg-light">
 		<article class="card-body mx-auto" style="max-width: 400px;">
 		<h4 class="card-title mt-3 text-center">Create Account</h4>
 		<p class="text-center">Get started with your free account</p>
-		<br>
+		
 		
 		<form name="registrationForm" action="register.jsp"  method="get" onsubmit="return validateForm()">
+			
 			<div class="form-group input-group">
 				<div class="input-group-prepend">
 					<span class="input-group-text"> <i class="fa fa-user"></i>
 					</span>
 				</div>
 				<input name="name" class="form-control" placeholder="Full name"
-					type="text" id="fullname">
+					type="text" id="name">
 			</div>
 			<!-- form-group// -->
 			<div class="form-group input-group">
@@ -224,7 +243,8 @@ function lengthRestriction(elem, min, max)
 		</article>
 	</div>
 	<!-- card.// -->
-		
+
+
 	
 	
 	<jsp:include page="footer.jsp"/>

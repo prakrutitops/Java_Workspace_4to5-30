@@ -53,6 +53,8 @@
                             <div class="col-md-12">
                             	<input type="hidden" name="p_image" value="data:image/jpeg;base64,<%=m.getP_image() %>" /> 
                              </div>
+                             
+                             
                                
                   			<br>
                   
