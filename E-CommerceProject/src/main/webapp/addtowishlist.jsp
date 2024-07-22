@@ -49,6 +49,13 @@
                                <input class="form-control" type="hidden" name="p_des" placeholder="Product Description" value="<%=m.getP_des() %>" readonly="readonly">
                             </div>
                             
+                        
+                            
+                             <div class="col-md-12">
+                               <input class="form-control" type="hidden" name="email" placeholder="Product Price" value="<%=session.getAttribute("email") %>" required>
+                            </div>
+                            
+                            
                             <br>
                             <div class="col-md-12">
                             	<input type="hidden" name="p_image" value="data:image/jpeg;base64,<%=m.getP_image() %>" /> 

@@ -25,7 +25,7 @@
             max-width: 100px;
             max-height: 100px;
         }
-        .swd-button 
+        .swd-button2 
 			{
 				background: #f2db18;
 				border: 1px solid white;
@@ -37,6 +37,7 @@
 				text-decoration: none;
 				text-transform: uppercase;
 				margin-top: 15px;
+				margin-right: 75px;
 			}
 			
 			form {
@@ -145,8 +146,8 @@ input[type=number]::-webkit-outer-spin-button {
         <% 
         // Your Java code to retrieve product data from the database goes here
         // For demonstration purposes, let's assume you have a list of Product objects
-        
-        List<CartModel> list = Dao.cartgetAll();// Method to retrieve product data from the database
+        ;
+        List<CartModel> list = Dao.cartgetAll(session.getAttribute("email").toString());// Method to retrieve product data from the database
         
         // Iterate over the product list and generate HTML for each product
          for (CartModel m : list) 
@@ -154,8 +155,10 @@ input[type=number]::-webkit-outer-spin-button {
         %>
         <div class="product">
             <img src="data:image/jpeg;base64,<%=m.getP_image()%>" width="150px" height="200px" />
-            <h3><%= m.getP_name() %></h3>
-            <p>Price: <%= m.getFp() %></p>
+            <br>
+            <p><b>Product Name:</b><h3><%= m.getP_name() %></h3></p>
+            <p><b>Quantity:</b> <h3><%= m.getP_qua() %></h3></p>
+            <p><b>Price:</b><%= m.getFp() %></p>
             
           
       		
@@ -163,7 +166,7 @@ input[type=number]::-webkit-outer-spin-button {
         
           <form action="deletecart.jsp">
             	<input type="hidden" name="id" value="<%=m.getId()%>">
-            	<input type="submit" class="swd-button" value="Remove">
+            	<input type="submit" class="swd-button2" value="Remove">
           </form>
           
             

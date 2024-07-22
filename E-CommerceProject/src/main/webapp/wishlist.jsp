@@ -49,7 +49,7 @@
         // Your Java code to retrieve product data from the database goes here
         // For demonstration purposes, let's assume you have a list of Product objects
         
-        List<WishlistModel> list = Dao.wishlistgetAll();// Method to retrieve product data from the database
+        List<WishlistModel> list = Dao.wishlistgetAll(session.getAttribute("email").toString());// Method to retrieve product data from the database
         
         // Iterate over the product list and generate HTML for each product
          for (WishlistModel m : list) 

@@ -81,6 +81,10 @@
                                <input class="form-control" type="hidden" name="price" placeholder="Price" value="<%=finalprice %>" readonly="readonly">
                             </div>
                             
+                               <div class="col-md-12">
+                               <input class="form-control" type="hidden" name="p_qua" placeholder="Quantity" value="<%=number2 %>" readonly="readonly">
+                            </div>
+                            
                             <br>
                             <div class="col-md-12">
                             	<input type="hidden" name="p_image" value="data:image/jpeg;base64,<%=m.getP_image() %>" /> 

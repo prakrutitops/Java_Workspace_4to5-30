@@ -154,14 +154,14 @@ public class Dao
 	  
 	  }
 
-	  public static List<WishlistModel> wishlistgetAll()
+	  public static List<WishlistModel> wishlistgetAll(String email)
 		{
 			List<WishlistModel> i = new ArrayList<WishlistModel>();
 			try {
 				
 				Connection con = Dao.getconnect();
-				PreparedStatement ps= con.prepareStatement("select * from wishlist");
-				
+				PreparedStatement ps= con.prepareStatement("select * from wishlist where email=?");
+				ps.setString(1, email);
 				ResultSet rs = (ResultSet) ps.executeQuery();
 				
 				while(rs.next())
@@ -189,14 +189,14 @@ public class Dao
 			
 			return i;
 		}
-	  public static List<CartModel> cartgetAll()
+	  public static List<CartModel> cartgetAll(String email)
 		{
 			List<CartModel> i = new ArrayList<CartModel>();
 			try {
 				
 				Connection con = Dao.getconnect();
-				PreparedStatement ps= con.prepareStatement("select * from cart");
-				
+				PreparedStatement ps= con.prepareStatement("select * from cart where email=?");
+				ps.setString(1, email);
 				ResultSet rs = (ResultSet) ps.executeQuery();
 				
 				while(rs.next())
@@ -207,6 +207,7 @@ public class Dao
 					d1.setP_name(rs.getString("p_name"));
 					d1.setP_price(rs.getString("p_price"));
 					d1.setP_des(rs.getString("p_des"));
+					d1.setP_qua(rs.getString("p_qua"));
 					d1.setFp(rs.getString("fp"));
 					//d1.setP_image(rs.getString("p_image"));
 					
@@ -253,14 +254,16 @@ public class Dao
 			         String pname = set.getString("p_name");
 			         String pprice = set.getString("p_price");
 			         String pdes = set.getString("p_des");
-					
+					 String pqua = set.getString("p_qua");
+					 String fp = set.getString("fp");
+					 String email = set.getString("email");
 			        
 			         m.setId(id);
 			         m.setP_image(encode);
 					m.setP_name(pname);
 					m.setP_price(pprice);
-					m.setP_des(pdes);
 					
+					m.setEmail(email);
 					
 					
 				}
