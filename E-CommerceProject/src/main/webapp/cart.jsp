@@ -102,7 +102,7 @@ input[type=number]::-webkit-outer-spin-button {
         
     </style>
     
-    <script type="text/javascript">
+  <script type="text/javascript">
 
     function decreaseQuantity(element) {
         var input = element.nextElementSibling;
@@ -134,6 +134,7 @@ input[type=number]::-webkit-outer-spin-button {
         // You can use `totalQuantity` variable for further processing
     }
     </script>
+
     
     
 </head>
@@ -160,7 +161,52 @@ input[type=number]::-webkit-outer-spin-button {
             <p><b>Quantity:</b> <h3><%= m.getP_qua() %></h3></p>
             <p><b>Price:</b><%= m.getFp() %></p>
             
-          
+          <form action="imageSave5" method="post" enctype="multipart/form-data" class="requires-validation" novalidate>
+	          
+	          <div style="margin-right: 100px;">
+	            <div onclick="decreaseQuantity(this)">-</div>
+	            <input type="text" name ="number" value="1" width="50px;" readonly="readonly"/>
+	            <div onclick="increaseQuantity(this)">+</div>
+        	</div>
+      		
+            	  
+
+                     <div class="col-md-12">
+                               <input class="form-control" type="text" name="p_name" placeholder="Product Name" value="<%=m.getP_name() %>" required>
+                     </div>
+                            
+                            <div class="col-md-12">
+                               <input class="form-control" type="text" name="p_price" placeholder="Product Price" value="<%=m.getP_price() %>" required>
+                            </div>
+                            
+                            
+                            <div class="col-md-12">
+                               <input class="form-control" type="text" name="fp" placeholder="Product Price" value="<%=number %>" required>
+                            </div>
+                            
+                        
+                            
+                            
+                             <div class="col-md-12">
+                               <input class="form-control" type="text" name="id" placeholder="Product Price" required>
+                            </div>
+                            
+                            
+                           
+                            
+                            <br>
+                            <div class="col-md-12">
+                               <input class="form-control" type="file" name="p_image" placeholder="Product Image" required>
+                            </div>
+
+                           <br>
+                  
+
+                        
+
+            	<input type="submit" class="swd-button" style="margin-right: 100px;" value="Proceed to Payment">
+          </form>
+	
       		
       		
         

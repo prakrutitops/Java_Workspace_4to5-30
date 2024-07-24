@@ -2,7 +2,7 @@ package com.model;
 
 public class WishlistModel {
 
-	private int id;
+	private int id,p_id;
 	private  String p_name,p_price,p_des,p_image,email;
 	
 	
@@ -42,6 +42,12 @@ public class WishlistModel {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public int getP_id() {
+		return p_id;
+	}
+	public void setP_id(int p_id) {
+		this.p_id = p_id;
 	}
 	
 	

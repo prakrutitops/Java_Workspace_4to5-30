@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
+import com.model.CartModel;
 import com.model.ContactModel;
+import com.model.PaymentModel;
 
 
 
@@ -154,6 +156,39 @@ public class ImageDao {
 		
 		
 		return m;
+	}
+	
+	public static List<PaymentModel> getimgfromcarttopayment(int id)
+	{
+		List<PaymentModel> i = new ArrayList<PaymentModel>();
+		try {
+			
+			Connection con = ImageDao.getconnection();
+			PreparedStatement ps= con.prepareStatement("select * from cart where id =?");
+			ps.setInt(1,id);
+			
+			ResultSet rs = (ResultSet) ps.executeQuery();
+			
+			while(rs.next())
+			{
+				PaymentModel d1 = new PaymentModel();
+				d1 = new PaymentModel();
+				
+				//d1.setP_image(rs.getString("p_image"));
+				
+				 byte[] imgData = rs.getBytes("p_image"); // blob field 
+		         String encode = Base64.getEncoder().encodeToString(imgData);
+		         d1.setP_image(encode);
+		         //request.setAttribute("imgBase", encode);
+				i.add(d1);
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return i;
 	}
 	
 	

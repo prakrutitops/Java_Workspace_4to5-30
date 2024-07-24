@@ -10,6 +10,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+
+
+
+
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -20,7 +24,7 @@
 			String id = request.getParameter("id");
 			int id2 = Integer.parseInt(id);
 			System.out.print(id2);
-			WishlistModel m = Dao.getimageindexwise(id2);
+			ImageModel m = Dao.getimageindexwise(id2);
 			
 			
 			
@@ -34,9 +38,7 @@
 			<h3><%=m.getP_price() %></h3>
 			<h3><%=m.getP_des() %></h3>
 			<img src="data:image/jpeg;base64,<%=m.getP_image()%>" width="350px" height="300px" />
-	
-	
-	
+   
 		<form action="imageSave4" method="post" enctype="multipart/form-data" class="requires-validation" novalidate>
 
 
@@ -56,7 +58,20 @@
                                <input class="form-control" type="hidden" name="p_des" placeholder="Product Description" value="<%=m.getP_des() %>" readonly="readonly">
                             </div>
                             
+                             <div class="col-md-12">
+                               <input class="form-control" type="hidden" name="p_qua" placeholder="Product Description" value="<%=1	%>" readonly="readonly">
+                            </div>
+                            
+                             <div class="col-md-12">
+                               <input class="form-control" type="hidden" name="email" placeholder="Product Description" value="<%=session.getAttribute("email")	%>" readonly="readonly">
+                            </div>
+                            
                             <br>
+                            
+                              <div class="col-md-12">
+                               <input class="form-control" type="hidden" name="fp" placeholder="Product Description" value="<%= m.getP_price()%>" readonly="readonly">
+                            </div>
+                            
                             <div class="col-md-12">
                             	<input type="hidden" name="p_image" value="data:image/jpeg;base64,<%=m.getP_image() %>" /> 
                              </div>

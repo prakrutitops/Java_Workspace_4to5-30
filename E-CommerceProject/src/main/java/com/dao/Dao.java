@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,6 +16,7 @@ import com.Imadata.ImageModel;
 import com.model.AdminModel;
 import com.model.CartModel;
 import com.model.ContactModel;
+import com.model.PaymentModel;
 import com.model.SignupModel;
 import com.model.WishlistModel;
 
@@ -172,6 +175,7 @@ public class Dao
 					d1.setP_name(rs.getString("p_name"));
 					d1.setP_price(rs.getString("p_price"));
 					d1.setP_des(rs.getString("p_des"));
+					d1.setP_id(rs.getInt("p_id"));
 					
 					//d1.setP_image(rs.getString("p_image"));
 					
@@ -227,13 +231,13 @@ public class Dao
 		}
 	  
 	  
-	  public static WishlistModel getimageindexwise(int id)
+	  public static ImageModel getimageindexwise(int id)
 		{
 			Connection con = ImageDao.getconnection();
 			
-			WishlistModel m = new WishlistModel();
+			ImageModel m = new ImageModel();
 			
-			String sql ="select * from wishlist where id=?";
+			String sql ="select * from products where id=?";
 			
 			try 
 			{
@@ -254,16 +258,15 @@ public class Dao
 			         String pname = set.getString("p_name");
 			         String pprice = set.getString("p_price");
 			         String pdes = set.getString("p_des");
-					 String pqua = set.getString("p_qua");
-					 String fp = set.getString("fp");
-					 String email = set.getString("email");
+					
+					
 			        
 			         m.setId(id);
 			         m.setP_image(encode);
 					m.setP_name(pname);
 					m.setP_price(pprice);
+					m.setP_des(pdes);
 					
-					m.setEmail(email);
 					
 					
 				}
@@ -354,5 +357,7 @@ public class Dao
 			
 			return status;
 		}
+		
+		
 	
 }

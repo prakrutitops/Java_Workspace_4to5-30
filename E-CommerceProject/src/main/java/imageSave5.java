@@ -23,9 +23,9 @@ import javax.servlet.http.Part;
 import com.Imadata.ImageDao;
 import com.Imadata.ImageModel;
 
-@WebServlet("/imageSave4")
+@WebServlet("/imageSave2")
 @MultipartConfig(maxFileSize=16177216)
-public class imageSave4 extends HttpServlet {
+public class imageSave5 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
@@ -50,11 +50,16 @@ public class imageSave4 extends HttpServlet {
 		int id2 = Integer.parseInt(id);
 		String name = request.getParameter("p_name");
 		String price = request.getParameter("p_price");
-		String description = request.getParameter("p_des");
+		int price2 = Integer.parseInt(price);
+		
+		String qua = request.getParameter("number");
+		int qua2 = Integer.parseInt(qua);
+		
 		String image = request.getParameter("p_image");
-		String p_qua = request.getParameter("p_qua");
-		String fp = request.getParameter("fp");
-		String email = request.getParameter("email");
+		
+		int fp = price2*qua2;
+		
+		
 		
 		String base64ImageData = image.split(",")[1];
 		 byte[] imageData = Base64.getDecoder().decode(base64ImageData);
@@ -86,43 +91,28 @@ public class imageSave4 extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 				con = DriverManager.getConnection(usl, user, pass);
 				
-				PreparedStatement ps = con.prepareStatement("insert into cart(p_name,p_price,p_des,p_image,p_qua,fp,email) values(?,?,?,?,?,?,?)");
+				PreparedStatement ps = con.prepareStatement("insert into payment(p_name,p_price,fp,p_qua,id,p_image) values(?,?,?,?,?,?)");
 				
 				//InputStream io = new ByteArrayInputStream(image.getBytes(StandardCharsets.UTF_8));
 
 				//InputStream io = m.getP_image();
 				
 				ps.setString(1, name);
-				ps.setString(2, price);				
-				ps.setString(3, description);
-				ps.setBlob(4,io);
-				ps.setString(5,p_qua);
-				ps.setString(6, fp);
-				ps.setString(7, email);
+				ps.setInt(2, price2);				
+				ps.setInt(3, fp);
+				ps.setInt(4,qua2);
+				ps.setInt(5,id2);
+				ps.setBlob(6,io);
 				
 				r = ps.executeUpdate();
 			
 				if(r>0)
 				{
-					System.out.println("done");
-					Thread.sleep(1000);
-					
-					PreparedStatement ps2 = con.prepareStatement("delete from wishlist where p_id=?");
-					ps2.setInt(1,id2);
-					
-					int status = ps2.executeUpdate();
-					if(status>0)
-					{
-						response.sendRedirect("cart.jsp");
-					}
-					else
-					{
-						System.out.println("Error");
-					}
-					
+					System.out.println("success9");
 					
 				}
-				else				{
+				else				
+				{
 				System.out.println("error");
 				}
 				
