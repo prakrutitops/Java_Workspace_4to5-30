@@ -13,8 +13,9 @@
 	<%
 		if(session.getAttribute("webwing")!=null)
 		{
-			String id = request.getParameter("id");
+			String id = request.getParameter("p_id");
 			int id2 = Integer.parseInt(id);
+			System.out.print(id2);
 			ImageModel m = ImageDao.getimageindexwise(id2);
 			
 			
@@ -33,8 +34,10 @@
 	<form action="imageSave2" method="post" enctype="multipart/form-data" class="requires-validation" novalidate>
 
 
-							 <div class="col-md-12">
-                               <input class="form-control" type="hidden" name="id" placeholder="Product Name" value="<%=m.getId() %>" required>
+							
+                            
+                             <div class="col-md-12">
+                               <input class="form-control" type="hidden" name="p_id" placeholder="Product Name" value="<%=m.getId() %>" required>
                             </div>
                             
                             <div class="col-md-12">

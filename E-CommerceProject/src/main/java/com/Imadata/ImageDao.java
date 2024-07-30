@@ -133,7 +133,7 @@ public class ImageDao {
 		         String pdes = set.getString("p_des");
 				
 		        
-				
+				m.setId(id);
 		         m.setP_image(encode);
 				m.setP_name(pname);
 				m.setP_price(pprice);

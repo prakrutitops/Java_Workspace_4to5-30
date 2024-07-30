@@ -23,7 +23,7 @@ import javax.servlet.http.Part;
 import com.Imadata.ImageDao;
 import com.Imadata.ImageModel;
 
-@WebServlet("/imageSave2")
+@WebServlet("/imageSave5")
 @MultipartConfig(maxFileSize=16177216)
 public class imageSave5 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -52,14 +52,15 @@ public class imageSave5 extends HttpServlet {
 		String price = request.getParameter("p_price");
 		int price2 = Integer.parseInt(price);
 		
-		String qua = request.getParameter("number");
+		String qua = request.getParameter("p_qua");
 		int qua2 = Integer.parseInt(qua);
 		
 		String image = request.getParameter("p_image");
-		
-		int fp = price2*qua2;
-		
-		
+		String fp = request.getParameter("fp");
+		int fp2 = Integer.parseInt(fp);
+//		int fp = price2*qua2;
+//		
+//		
 		
 		String base64ImageData = image.split(",")[1];
 		 byte[] imageData = Base64.getDecoder().decode(base64ImageData);
@@ -99,7 +100,7 @@ public class imageSave5 extends HttpServlet {
 				
 				ps.setString(1, name);
 				ps.setInt(2, price2);				
-				ps.setInt(3, fp);
+				ps.setInt(3, fp2);
 				ps.setInt(4,qua2);
 				ps.setInt(5,id2);
 				ps.setBlob(6,io);

@@ -46,8 +46,9 @@ public class imageSave2 extends HttpServlet {
 		 * Part p = request.getPart("p_image"); System.out.println(p);
 		 */
 		//Part p = request.getPart("p_image");
-		String id = request.getParameter("id");
-		int id2 = Integer.parseInt(id);
+		
+		String id3 = request.getParameter("p_id");
+		int id4 = Integer.parseInt(id3);
 		String name = request.getParameter("p_name");
 		String price = request.getParameter("p_price");
 		String description = request.getParameter("p_des");
@@ -84,7 +85,7 @@ public class imageSave2 extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 				con = DriverManager.getConnection(usl, user, pass);
 				
-				PreparedStatement ps = con.prepareStatement("insert into wishlist(p_name,p_price,p_des,p_image,email) values(?,?,?,?,?)");
+				PreparedStatement ps = con.prepareStatement("insert into wishlist(p_name,p_price,p_des,p_image,email,p_id) values(?,?,?,?,?,?)");
 				
 				//InputStream io = new ByteArrayInputStream(image.getBytes(StandardCharsets.UTF_8));
 
@@ -95,6 +96,7 @@ public class imageSave2 extends HttpServlet {
 				ps.setString(3, description);
 				ps.setBlob(4,io);
 				ps.setString(5,email);
+				ps.setInt(6,id4);
 				
 				r = ps.executeUpdate();
 			

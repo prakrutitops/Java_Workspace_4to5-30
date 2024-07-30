@@ -100,7 +100,7 @@
           <a href="counter.jsp"><img al	t="minus" src="icon/minus.png" width="25" height="25"><input type="text" name="minus"></a>   --> 
           
          <form action="addtowishlist.jsp">
-            	<input type="hidden" name="id" value="<%=m.getId()%>">
+            	<input type="hidden" name="p_id" value="<%=m.getId()%>">
             	<input type="submit" class="swd-button" value="Wishlist">
             </form>
             

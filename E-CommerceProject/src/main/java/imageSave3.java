@@ -54,6 +54,7 @@ public class imageSave3 extends HttpServlet {
 		String image = request.getParameter("p_image");
 		String fp1 = request.getParameter("price");
 		String qua = request.getParameter("p_qua");
+		String email = request.getParameter("email");
 		
 		int fp = Integer.parseInt(fp1); 
 		
@@ -87,7 +88,7 @@ public class imageSave3 extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 				con = DriverManager.getConnection(usl, user, pass);
 				
-				PreparedStatement ps = con.prepareStatement("insert into cart(p_name,p_price,p_des,p_image,p_qua,fp) values(?,?,?,?,?,?)");
+				PreparedStatement ps = con.prepareStatement("insert into cart(p_name,p_price,p_des,p_image,p_qua,fp,email) values(?,?,?,?,?,?,?)");
 				
 				//InputStream io = new ByteArrayInputStream(image.getBytes(StandardCharsets.UTF_8));
 
@@ -99,6 +100,7 @@ public class imageSave3 extends HttpServlet {
 				ps.setBlob(4,io);
 				ps.setString(5, qua);
 				ps.setInt(6,fp);
+				ps.setString(7,email);
 				
 				r = ps.executeUpdate();
 			

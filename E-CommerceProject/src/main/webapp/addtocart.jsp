@@ -92,6 +92,10 @@
                                
                   			<br>
                   			
+                  			<div class="col-md-12">
+                               <input class="form-control" type="hidden" name="email" placeholder="Price" value="<%=session.getAttribute("email") %>" readonly="readonly">
+                            </div>
+                  			
                   			<p>
                   			
                				</p>

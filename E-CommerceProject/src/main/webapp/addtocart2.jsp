@@ -25,8 +25,9 @@
 			int id2 = Integer.parseInt(id);
 			System.out.print(id2);
 			ImageModel m = Dao.getimageindexwise(id2);
-			
-			
+			String number = request.getParameter("number");
+			int num2 = Integer.parseInt(number);
+			int price = Integer.parseInt(m.getP_price()); 
 			
 	%>
 		
@@ -38,6 +39,17 @@
 			<h3><%=m.getP_price() %></h3>
 			<h3><%=m.getP_des() %></h3>
 			<img src="data:image/jpeg;base64,<%=m.getP_image()%>" width="350px" height="300px" />
+   
+   			<%!
+   			
+   					int count(int num2,int price)
+   					{
+   						return num2*price;
+   					}
+   			
+   			%>
+   			
+   			<% int finalprice = count(num2, price);%>
    
 		<form action="imageSave4" method="post" enctype="multipart/form-data" class="requires-validation" novalidate>
 
@@ -59,7 +71,7 @@
                             </div>
                             
                              <div class="col-md-12">
-                               <input class="form-control" type="hidden" name="p_qua" placeholder="Product Description" value="<%=1	%>" readonly="readonly">
+                               <input class="form-control" type="hidden" name="p_qua" placeholder="Product Description" value="<%=num2	%>" readonly="readonly">
                             </div>
                             
                              <div class="col-md-12">
@@ -69,7 +81,7 @@
                             <br>
                             
                               <div class="col-md-12">
-                               <input class="form-control" type="hidden" name="fp" placeholder="Product Description" value="<%= m.getP_price()%>" readonly="readonly">
+                               <input class="form-control" type="hidden" name="fp" placeholder="Product Description" value="<%=finalprice %>" readonly="readonly">
                             </div>
                             
                             <div class="col-md-12">

@@ -39,6 +39,38 @@
 			}
         
     </style>
+     <script type="text/javascript">
+
+    function decreaseQuantity(element) {
+        var input = element.nextElementSibling;
+        var value = parseInt(input.value, 10);
+        if (value > 0) {
+            input.value = value - 1;
+        }
+    }
+
+    // Function to increase quantity
+    function increaseQuantity(element) {
+        var input = element.previousElementSibling;
+        var value = parseInt(input.value, 10);
+        input.value = value + 1;
+    }
+
+    // Function to get final quantity
+    function getFinalQuantity() {
+        var products = document.getElementsByClassName('product');
+        var totalQuantity = 0;
+        
+        for (var i = 0; i < products.length; i++) {
+            var quantityInput = products[i].querySelector('.quantity-input');
+            var quantity = parseInt(quantityInput.value, 10);
+            totalQuantity += quantity;
+        }
+        
+        console.log('Final Quantity:', totalQuantity);
+        // You can use `totalQuantity` variable for further processing
+    }
+    </script>
 </head>
 <body>
 
@@ -69,10 +101,25 @@
            <input type="text" name="counter" value="1" style="width: 35px;">
           <a href="counter.jsp"><img al	t="minus" src="icon/minus.png" width="25" height="25"><input type="text" name="minus"></a>   --> 
           
-         <form action="addtocart2.jsp">
+          
+          
+           <form action="addtocart2.jsp">
+	          
+	          <div class="quantity">
+	            <div onclick="decreaseQuantity(this)">-</div>
+	            <input type="text" name ="number" value="1" width="50px;" readonly="readonly"/>
+	            <div onclick="increaseQuantity(this)">+</div>
+        	</div>
+      		
+            	<input type="hidden" name="id" value="<%=m.getP_id()%>">
+            	<input type="submit" class="swd-button" value="Cart">
+          </form>
+          
+          
+         <%-- <form action="addtocart2.jsp">
             	<input type="hidden" name="id" value="<%=m.getP_id()%>">
             	<input type="submit" class="swd-button" value="add to cart">
-            </form>
+            </form> --%>
             
           <form action="deletewishlist.jsp">
             	<input type="hidden" name="id" value="<%=m.getId()%>">

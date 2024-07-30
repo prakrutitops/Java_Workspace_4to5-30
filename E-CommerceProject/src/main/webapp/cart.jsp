@@ -163,46 +163,37 @@ input[type=number]::-webkit-outer-spin-button {
             
           <form action="imageSave5" method="post" enctype="multipart/form-data" class="requires-validation" novalidate>
 	          
-	          <div style="margin-right: 100px;">
-	            <div onclick="decreaseQuantity(this)">-</div>
-	            <input type="text" name ="number" value="1" width="50px;" readonly="readonly"/>
-	            <div onclick="increaseQuantity(this)">+</div>
-        	</div>
+	         
       		
             	  
 
-                     <div class="col-md-12">
-                               <input class="form-control" type="text" name="p_name" placeholder="Product Name" value="<%=m.getP_name() %>" required>
+                 <div class="col-md-12">
+                               <input class="form-control" type="hidden" name="p_name" placeholder="Product Name" value="<%=m.getP_name() %>" required>
                      </div>
                             
                             <div class="col-md-12">
-                               <input class="form-control" type="text" name="p_price" placeholder="Product Price" value="<%=m.getP_price() %>" required>
+                               <input class="form-control" type="hidden" name="p_price" placeholder="Product Price" value="<%=m.getP_price() %>" required>
                             </div>
                             
                             
                             <div class="col-md-12">
-                               <input class="form-control" type="text" name="fp" placeholder="Product Price" value="<%=number %>" required>
+                               <input class="form-control" type="hidden" name="fp" placeholder="Product Price" value="<%=m.getFp() %>" required>
                             </div>
                             
-                        
+                        	<div class="col-md-12">
+                               <input class="form-control" type="hidden" name="id" placeholder="Product id" value="<%=m.getId() %>" required>
+                            </div>
                             
                             
                              <div class="col-md-12">
-                               <input class="form-control" type="text" name="id" placeholder="Product Price" required>
+                               <input class="form-control" type="hidden" name="p_qua" placeholder="Product quantity" value="<%=m.getP_qua() %>" required>
                             </div>
                             
+                             <div class="col-md-12">
+                            	<input type="hidden" name="p_image" value="data:image/jpeg;base64,<%=m.getP_image() %>" /> 
+                             </div>
                             
                            
-                            
-                            <br>
-                            <div class="col-md-12">
-                               <input class="form-control" type="file" name="p_image" placeholder="Product Image" required>
-                            </div>
-
-                           <br>
-                  
-
-                        
 
             	<input type="submit" class="swd-button" style="margin-right: 100px;" value="Proceed to Payment">
           </form>
