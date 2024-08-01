@@ -190,6 +190,10 @@ input[type=number]::-webkit-outer-spin-button {
                             </div>
                             
                              <div class="col-md-12">
+                               <input class="form-control" type="hidden" name="email" placeholder="Product quantity" value="<%=session.getAttribute("email") %>" required>
+                            </div>
+                            
+                             <div class="col-md-12">
                             	<input type="hidden" name="p_image" value="data:image/jpeg;base64,<%=m.getP_image() %>" /> 
                              </div>
                             

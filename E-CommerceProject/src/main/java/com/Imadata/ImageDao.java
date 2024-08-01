@@ -14,6 +14,7 @@ import com.model.PaymentModel;
 
 
 
+
 public class ImageDao {
 
 	public static Connection getconnection()
@@ -52,6 +53,43 @@ public class ImageDao {
 				d1.setP_price(rs.getString("p_price"));
 				d1.setP_des(rs.getString("p_des"));
 				
+				//d1.setP_image(rs.getString("p_image"));
+				
+				 byte[] imgData = rs.getBytes("p_image"); // blob field 
+		         String encode = Base64.getEncoder().encodeToString(imgData);
+		         d1.setP_image(encode);
+		         //request.setAttribute("imgBase", encode);
+				i.add(d1);
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return i;
+	}
+	
+	public static List<PaymentModel> getAllplacedorder()
+	{
+		List<PaymentModel> i = new ArrayList<PaymentModel>();
+		try {
+			
+			Connection con = ImageDao.getconnection();
+			PreparedStatement ps= con.prepareStatement("select * from payment");
+			
+			ResultSet rs = (ResultSet) ps.executeQuery();
+			
+			while(rs.next())
+			{
+				PaymentModel d1 = new PaymentModel();
+				d1 = new PaymentModel();
+				d1.setId(rs.getInt("id"));
+				d1.setP_name(rs.getString("p_name"));
+				d1.setP_price(rs.getInt("p_price"));
+				d1.setFp(rs.getInt("fp"));
+				d1.setP_qua(rs.getInt("p_qua"));
+				d1.setPayment_id(rs.getInt("payment_id"));
 				//d1.setP_image(rs.getString("p_image"));
 				
 				 byte[] imgData = rs.getBytes("p_image"); // blob field 
@@ -189,6 +227,54 @@ public class ImageDao {
 		}
 		
 		return i;
+	}
+	
+	//name based on payment table
+	public static PaymentModel getdatawiseid(int id)
+	{
+		Connection con = ImageDao.getconnection();
+		
+		PaymentModel m = new PaymentModel();
+		
+		String sql ="select * from payment where id=?";
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1,id);
+			
+			ResultSet set = ps.executeQuery();
+			
+			if(set.next())
+			{
+				
+					
+				
+		         String pname = set.getString("p_name");
+		         String price = set.getString("p_price");
+		         int price2 = Integer.parseInt(price);
+		        
+			
+				m.setP_name(pname);
+				m.setP_price(price2);
+				
+				
+				
+			}
+			
+			//get all details from model
+			
+			
+			
+		}
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return m;
 	}
 	
 	

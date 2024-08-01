@@ -1,3 +1,4 @@
+<%@page import="com.model.PaymentModel"%>
 <%@page import="java.util.List"%>
 <%@page import="com.Imadata.ImageDao"%>
 <%@page import="com.Imadata.ImageModel"%>
@@ -93,19 +94,20 @@
          <thead>
             <th>Product Name</th>
 			<th>Product Price</th>
-			<th>Product Description</th>
+			<th>Final Price</th>
+			<th>Quantity</th>
+			<th>Email</th>
 			<th>Product Image</th>
-			
 			
          </thead>
          <tbody>
            <%
-			List<ImageModel> list = ImageDao.getAll();
-			for(ImageModel m : list)
+			List<PaymentModel> list = ImageDao.getAllplacedorder();
+			for(PaymentModel m : list)
 			{
 			%>
 			<tr>
-				</td><td><%=m.getP_name() %></td><td><%=m.getP_price() %></td><td><%=m.getP_des() %></td><td><img src="data:image/jpeg;base64,<%=m.getP_image()%>" width="150px" height="200px" /></td>
+				</td><td><%=m.getP_name() %></td><td><%=m.getP_price() %></td><td><%=m.getFp() %></td><td><%=m.getP_qua() %></td><td><%= session.getAttribute("email") %></td><td><img src="data:image/jpeg;base64,<%=m.getP_image()%>" width="150px" height="200px" /></td>
 			</tr>	
 			
 			<%

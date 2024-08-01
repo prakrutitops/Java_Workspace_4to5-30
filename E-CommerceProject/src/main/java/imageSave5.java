@@ -11,6 +11,9 @@ import java.util.List;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Base64;
+
+import javax.mail.Session;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -49,6 +52,7 @@ public class imageSave5 extends HttpServlet {
 		String id = request.getParameter("id");
 		int id2 = Integer.parseInt(id);
 		String name = request.getParameter("p_name");
+		String email = request.getParameter("email");
 		String price = request.getParameter("p_price");
 		int price2 = Integer.parseInt(price);
 		
@@ -92,7 +96,7 @@ public class imageSave5 extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 				con = DriverManager.getConnection(usl, user, pass);
 				
-				PreparedStatement ps = con.prepareStatement("insert into payment(p_name,p_price,fp,p_qua,id,p_image) values(?,?,?,?,?,?)");
+				PreparedStatement ps = con.prepareStatement("insert into payment(p_name,p_price,fp,p_qua,id,p_image,email) values(?,?,?,?,?,?,?)");
 				
 				//InputStream io = new ByteArrayInputStream(image.getBytes(StandardCharsets.UTF_8));
 
@@ -104,12 +108,34 @@ public class imageSave5 extends HttpServlet {
 				ps.setInt(4,qua2);
 				ps.setInt(5,id2);
 				ps.setBlob(6,io);
+				ps.setString(7,email);
 				
 				r = ps.executeUpdate();
 			
 				if(r>0)
 				{
-					System.out.println("success9");
+					System.out.println("success");
+					
+					PreparedStatement ps2 = con.prepareStatement("delete from cart where id=? ");
+					ps2.setInt(1,id2);
+					
+					int status = ps2.executeUpdate();
+					
+					if(status>0)
+					{
+						
+						
+						HttpSession sess = request.getSession();
+						sess.setAttribute("id", id2);
+						response.sendRedirect("EmailSendingServlet3");
+						
+						
+						
+					}
+					else
+					{
+						System.out.println("Error");
+					}
 					
 				}
 				else				
