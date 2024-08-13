@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="t1" class="com.model.Person">
+	
+		<property name="list">
+		
+		<list>
+		
+			<value>Deep</value>
+			<value>Meet</value>
+			<value>Dharmik</value>
+			<value>Keval</value>
+			<value>Deep</value>
+			<value>Meet</value>
+		
+		</list>
+			
+		</property>
+		<property name="set">
+			<set>
+				
+			<value>101</value>
+			<value>102</value>
+			<value>103</value>
+			<value>104</value>
+			<value>101</value>
+			<value>102</value>
+			
+			</set>
+		</property>
+		
+		<property name="map">
+			
+			<map>
+				<entry key="101" value="vineet"></entry>
+			</map>
+		</property>
+		
+		<property name="properties">
+			
+			<props>
+			
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			
+			</props>
+			
+		</property>
+	</bean>
+
+
+</beans>

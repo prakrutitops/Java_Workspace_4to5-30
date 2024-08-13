@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 
+<bean id="t1" class="com.model.Person" autowire="byName">
+<property name="id" value="101"></property>
+<property name="name" value="Prakruti"></property>
+</bean>
+
+<bean id="add" class="com.model.Address">
+<property name="add" value="Rajkot"></property>
+</bean>
+ -->
+ <!-- <bean id="t1" class="com.model.Person" autowire="byType">
+<property name="id" value="101"></property>
+<property name="name" value="Prakruti"></property>
+</bean>
+
+<bean id="add1" class="com.model.Address">
+<property name="add" value="Rajkot"></property>
+</bean>
+<bean id="add2" class="com.model.Address">
+<property name="add" value="Rajkot"></property>
+</bean>
+ 
+ -->
+ <bean id="t1" class="com.model.Person" autowire="constructor">
+<property name="id" value="101"></property>
+<property name="name" value="Prakruti"></property>
+</bean>
+
+<bean id="add1" class="com.model.Address">
+<property name="add" value="Rajkot"></property>
+</bean>
+
+<!-- <bean id="add2" class="com.model.Address">
+<property name="add" value="Rajkot"></property>
+</bean> --> 
+ 
+ 
+  </beans>
