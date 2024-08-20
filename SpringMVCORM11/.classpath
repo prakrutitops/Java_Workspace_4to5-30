@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/aspectj-1.6.9.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/aspectjrt.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/aspectj-weaver.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/cglib2.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/cglib-nodep-2.1.3.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/commons-pool-1.5.4.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/hibernate-commons-annotations-4.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/hibernate-core-4.1.4.Final.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/javassist-3.15.0-GA.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/jboss-logging-3.1.0.GA.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/jstl-standard.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/log4j.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/mysql-connector-java-5.1.6.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/servlet-api.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-aop-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-aspects-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-beans-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-build-src-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-context-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-context-support-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-core-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-expression-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-framework-bom-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-instrument-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-jdbc-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-jms-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-messaging-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-orm-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-oxm-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-test-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-tx-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-web-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-webmvc-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-webmvc-portlet-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring MVC Jar/spring-websocket-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/activation-1.0.2.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/asm-1.5.3.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/asm-attrs-1.5.3.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/cglib-2.1_3.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/commons-beanutils-1.7.0.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/commons-digester-1.8.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/commons-email-1.0.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/commons-fileupload-1.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/commons-io-1.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/dumbster-1.6.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/ehcache-1.2.3.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/hibernate-3.2.6.ga.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/hibernate-annotations-3.3.1.GA.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/hibernate-commons-annotations-3.0.0.ga.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/hibernate-entitymanager-3.3.2.GA.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/hibernate-search-3.0.0.GA.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/hibernate-validator-4.0.2.GA.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/icu4j-2.6.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/javassist-3.4.GA.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/jaxb-api-2.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/jaxb-impl-2.1.3.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/jaxen-1.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/jdom-1.0.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/lucene-core-2.3.2.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/lucene-highlighter-2.0.0.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/mail-1.4.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/mysql-connector-java-5.0.5.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/quartz-1.5.2.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/slf4j-api-1.5.6.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/slf4j-log4j12-1.5.6.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/spring-aop-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/spring-asm-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/spring-beans-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/spring-context-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/spring-core-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/spring-expression-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/spring-jdbc-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/spring-orm-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/spring-tx-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/spring-web-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/spring-webmvc-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/stax-api-1.0-2.jar"/>
+	<classpathentry kind="lib" path="E:/software/External Jars/External Jars/Spring ORM Jar/validation-api-1.0.0.GA.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
