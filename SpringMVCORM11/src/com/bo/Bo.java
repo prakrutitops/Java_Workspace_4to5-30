@@ -1,5 +1,7 @@
 package com.bo;
 
+import java.util.List;
+
 import com.dao.Dao;
 import com.model.Person;
 
@@ -19,4 +21,10 @@ public class Bo
 	{
 		dao.insertdata(p);
 	}
+	
+	public List<Person>viewdetails()
+	{
+		return dao.viewdetails();
+	}
+	
 }

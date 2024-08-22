@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 20 Aug, 2024 3:24:12 PM by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 22 Aug, 2024 3:39:25 PM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.model.Person" table="PERSON">
         <id name="id" type="int">
             <column name="ID" />
             <generator class="increment" />
         </id>
-        <property name="pname" type="java.lang.String">
-            <column name="PNAME" />
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
         </property>
-        <property name="paddress" type="java.lang.String">
-            <column name="PADDRESS" />
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
         </property>
     </class>
 </hibernate-mapping>

@@ -8,7 +8,24 @@
 </head>
 <body>
 
-Hello
+
+	<form action="insert" name="insert" method="post">
+	
+		<p>
+			<input type="text" name="name">
+		</p>	
+		
+		<p>
+			<input type="text" name="address">
+		</p>	
+		
+		<p>
+			<input type="submit" value="Go">
+		</p>
+	</form>
+	
+	<a href="show">View Data</a>
+
 
 
 </body>

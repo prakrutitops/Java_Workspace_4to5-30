@@ -3,7 +3,7 @@ package com.model;
 public class Person 
 {
 	int id;
-	String pname,paddress;
+	String name,address;
 	
 	public int getId() {
 		return id;
@@ -11,18 +11,19 @@ public class Person
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getPname() {
-		return pname;
+	public String getName() {
+		return name;
 	}
-	public void setPname(String pname) {
-		this.pname = pname;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getPaddress() {
-		return paddress;
+	public String getAddress() {
+		return address;
 	}
-	public void setPaddress(String paddress) {
-		this.paddress = paddress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
+	
 	
 	
 }
