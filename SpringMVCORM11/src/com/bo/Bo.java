@@ -2,6 +2,8 @@ package com.bo;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.HibernateTemplate;
+
 import com.dao.Dao;
 import com.model.Person;
 
@@ -27,4 +29,17 @@ public class Bo
 		return dao.viewdetails();
 	}
 	
+	public void updatedata(Person p)
+	{
+		 dao.updatedata(p);
+	}
+	
+	public void deletedata(Person p)
+	{
+		dao.deletedata(p);
+	}
+	public Person getPersonById(int id)
+	{
+		return dao.getPersonById(id);
+	}
 }

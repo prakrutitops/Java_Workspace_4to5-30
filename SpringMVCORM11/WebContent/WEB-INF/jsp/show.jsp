@@ -27,6 +27,8 @@
 			<th>Id</th>
 			<th>Name</th>
 			<th>Address</th>
+			<th>Edit</th>
+			<th>Delete</th>
 			
 	</tr>
 	
@@ -42,7 +44,18 @@
 					<td><%=p.getId()%></td>
 					<td><%=p.getName()%></td>
 					<td><%=p.getAddress()%></td>
-					
+					<td>
+						<form action="edit" method="post" name="edit">
+							<input type="hidden" name="id" value="<%=p.getId()%>">
+							<input type="submit" name="action" value="Edit">
+						</form>
+					</td>
+					<td>
+						<form action="delete" method="post" name="delete">
+							<input type="hidden" name="id" value="<%=p.getId()%>">
+							<input type="submit" name="action" value="Delete">
+						</form>
+					</td>
 			
 	
 	</tr>			
@@ -59,7 +72,7 @@
 	</table>
 	
 	
-	
+	<a href="add">Add Data</a>
 	
 
 
